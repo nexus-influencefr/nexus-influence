@@ -14,6 +14,7 @@ const Partners = () => {
     setIsDragging(true)
     startX.current = e.touches[0].pageX
     if (trackRef.current) {
+      trackRef.current.style.animationPlayState = 'paused'
       const computedStyle = window.getComputedStyle(trackRef.current)
       const matrix = new DOMMatrix(computedStyle.transform)
       scrollLeft.current = matrix.m41
@@ -21,21 +22,45 @@ const Partners = () => {
   }
 
   const handleTouchMove = (e) => {
-    if (!isDragging) return
-    e.preventDefault()
+    if (!isDragging || !trackRef.current) return
     const x = e.touches[0].pageX
-    const walk = (x - startX.current) * 2
-    if (trackRef.current) {
-      trackRef.current.style.transform = `translateX(${scrollLeft.current + walk}px)`
-    }
+    const walk = (x - startX.current) * 1.5
+    trackRef.current.style.transform = `translateX(${scrollLeft.current + walk}px)`
   }
 
   const handleTouchEnd = () => {
     setIsDragging(false)
     if (trackRef.current) {
-      setTimeout(() => {
-        trackRef.current.style.transform = ''
-      }, 100)
+      trackRef.current.style.animationPlayState = 'running'
+      trackRef.current.style.transform = ''
+    }
+  }
+
+  // Gestion souris (desktop)
+  const handleMouseDown = (e) => {
+    setIsDragging(true)
+    startX.current = e.pageX
+    if (trackRef.current) {
+      trackRef.current.style.animationPlayState = 'paused'
+      const computedStyle = window.getComputedStyle(trackRef.current)
+      const matrix = new DOMMatrix(computedStyle.transform)
+      scrollLeft.current = matrix.m41
+    }
+  }
+
+  const handleMouseMove = (e) => {
+    if (!isDragging || !trackRef.current) return
+    e.preventDefault()
+    const x = e.pageX
+    const walk = (x - startX.current) * 1.5
+    trackRef.current.style.transform = `translateX(${scrollLeft.current + walk}px)`
+  }
+
+  const handleMouseUp = () => {
+    setIsDragging(false)
+    if (trackRef.current) {
+      trackRef.current.style.animationPlayState = 'running'
+      trackRef.current.style.transform = ''
     }
   }
 
@@ -63,6 +88,10 @@ const Partners = () => {
             onTouchStart={handleTouchStart}
             onTouchMove={handleTouchMove}
             onTouchEnd={handleTouchEnd}
+            onMouseDown={handleMouseDown}
+            onMouseMove={handleMouseMove}
+            onMouseUp={handleMouseUp}
+            onMouseLeave={handleMouseUp}
           >
             <div className={`partners-track ${isDragging ? 'dragging' : ''}`} ref={trackRef}>
               {[...partnersData, ...partnersData].map((partner, index) => {

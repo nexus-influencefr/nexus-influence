@@ -24,13 +24,15 @@
   gap: 40px;
   width: max-content;
   animation: scrollPartners 15s linear infinite;
-  touch-action: pan-y;
+  touch-action: pan-x;
   user-select: none;
+  cursor: grab;
 }
 
 .partners-track.dragging {
   animation-play-state: paused !important;
   transition: none;
+  cursor: grabbing;
 }
 
 @keyframes scrollPartners {
@@ -42,8 +44,11 @@
   }
 }
 
-.partners-slider:hover .partners-track {
-  animation-play-state: paused;
+/* Pause au hover seulement sur desktop */
+@media (hover: hover) and (pointer: fine) {
+  .partners-slider:hover .partners-track {
+    animation-play-state: paused;
+  }
 }
 
 .partner-item {
@@ -79,15 +84,23 @@
   transition: opacity 0.4s ease;
 }
 
-.partner-item:hover {
-  background: rgba(0, 0, 0, 0.4);
-  border-color: rgba(212, 175, 55, 0.4);
-  box-shadow: 0 15px 40px rgba(212, 175, 55, 0.2);
-  transform: translateY(-10px) scale(1.02);
-}
+/* Effets hover seulement sur desktop */
+@media (hover: hover) and (pointer: fine) {
+  .partner-item:hover {
+    background: rgba(0, 0, 0, 0.4);
+    border-color: rgba(212, 175, 55, 0.4);
+    box-shadow: 0 15px 40px rgba(212, 175, 55, 0.2);
+    transform: translateY(-10px) scale(1.02);
+  }
 
-.partner-item:hover::before {
-  opacity: 1;
+  .partner-item:hover::before {
+    opacity: 1;
+  }
+
+  .partner-item:hover .partner-logo-img {
+    filter: contrast(1.2) saturate(1.5) drop-shadow(0 0 15px rgba(212, 175, 55, 0.8)) drop-shadow(0 0 30px rgba(212, 175, 55, 0.5));
+    transform: scale(1.08);
+  }
 }
 
 .partner-logo {
@@ -107,11 +120,6 @@
   border-radius: 30px;
   transition: all 0.4s ease;
   filter: brightness(0.95) contrast(1) saturate(1);
-}
-
-.partner-item:hover .partner-logo-img {
-  filter: contrast(1.2) saturate(1.5) drop-shadow(0 0 15px rgba(212, 175, 55, 0.8)) drop-shadow(0 0 30px rgba(212, 175, 55, 0.5));
-  transform: scale(1.08);
 }
 
 .partner-name {
