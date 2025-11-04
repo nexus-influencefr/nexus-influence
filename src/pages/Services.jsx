@@ -126,7 +126,7 @@ const Services = () => {
       title: 'Liberté créative', 
       description: 'Nous préservons votre authenticité et votre style unique. Votre voix reste la vôtre.' 
     },
-    { 
+    {
       title: 'Excellence', 
       description: 'Nous visons l\'excellence dans chaque projet. Un souci du détail permanent pour votre réussite.' 
     },
@@ -134,7 +134,7 @@ const Services = () => {
       title: 'Transparence', 
       description: 'Communication claire et honnête à chaque étape. Pas de frais cachés, pas de surprises.' 
     },
-    { 
+    {
       title: 'Ambition', 
       description: 'Nous croyons en vos objectifs les plus audacieux et mettons tout en œuvre pour les atteindre.' 
     }

@@ -136,7 +136,7 @@ const Home = () => {
       <section className="hero-section">
         <div className="container">
           <AnimatedSection>
-            <div className="hero-content">
+          <div className="hero-content">
               <div className="hero-brand">Nexus Influence</div>
               <h1>Valorisez votre talent</h1>
               <p className="hero-subtitle">
@@ -154,7 +154,7 @@ const Home = () => {
           </AnimatedSection>
         </div>
       </section>
-
+            
       <section className="carousel-section dark-section">
         <div className="container">
           <div className="carousel-layout">
@@ -168,7 +168,7 @@ const Home = () => {
                 </p>
                 <Link to="/creators" className="btn btn-outline">
                   Voir tous nos créateurs
-                </Link>
+              </Link>
               </AnimatedSection>
             </div>
             <div className="carousel-right">
@@ -198,18 +198,18 @@ const Home = () => {
               { icon: '🎯', title: 'Spécialistes micro-influenceurs', desc: 'Nous sommes spécialisés dans l\'accompagnement des micro-créateurs à fort potentiel', color: '#3498DB' }
             ].map((value, index) => (
               <AnimatedSection key={index} delay={index * 0.1}>
-                <motion.div
+                  <motion.div
                   className={`value-card value-card-${index + 1}`}
                   whileHover={{ scale: 1.05, rotate: index % 2 === 0 ? 2 : -2 }}
                   style={{ '--value-color': value.color }}
-                >
+                  >
                   <div className="value-icon">{value.icon}</div>
                   <h4>{value.title}</h4>
                   <p>{value.desc}</p>
-                </motion.div>
+                  </motion.div>
               </AnimatedSection>
-            ))}
-          </div>
+                ))}
+              </div>
         </div>
       </section>
 
