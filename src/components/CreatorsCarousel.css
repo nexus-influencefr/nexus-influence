@@ -79,7 +79,7 @@
   touch-action: pan-x;
   user-select: none;
   cursor: grab;
-  transition: transform 0.3s ease;
+  transition: transform 0.5s cubic-bezier(0.25, 0.46, 0.45, 0.94);
 }
 
 .carousel-track.dragging {
@@ -400,73 +400,105 @@
   .creator-modal {
     padding: 15px;
     overflow: hidden;
+    align-items: flex-start;
+    padding-top: 70px;
   }
 
   .creator-modal-content {
     grid-template-columns: 1fr;
-    gap: 15px;
-    padding: 45px 15px 20px 15px;
-    max-width: 70vw;
-    max-height: 70vh;
-    overflow-y: auto;
+    gap: 10px;
+    padding: 35px 15px 15px;
+    width: 85vw;
+    max-width: 85vw;
+    height: auto;
+    max-height: none;
+    overflow: visible;
     border-radius: 15px;
     transform: scale(0.7);
+    display: flex;
+    flex-direction: column;
   }
   
   .modal-image {
-    height: 200px;
+    height: 160px;
     border-radius: 10px;
+    flex-shrink: 0;
+    width: 100%;
+  }
+
+  .modal-image img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
   }
   
+  .modal-info {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+    overflow: visible;
+    width: 100%;
+  }
+
   .modal-info h2 {
-    font-size: 1.3rem;
+    font-size: 1.1rem;
+    margin: 0;
   }
 
   .modal-handle {
-    font-size: 0.8rem;
-    margin-top: -8px;
+    font-size: 0.7rem;
+    margin: 0;
   }
 
   .modal-type {
-    font-size: 0.7rem;
-    padding: 5px 10px;
+    font-size: 0.6rem;
+    padding: 3px 8px;
+    margin: 0;
   }
 
   .modal-desc {
-    font-size: 0.75rem;
-    line-height: 1.4;
+    font-size: 0.65rem;
+    line-height: 1.2;
+    margin: 0;
   }
 
   .modal-stats {
-    gap: 10px;
+    gap: 8px;
+    margin: 4px 0;
+    width: 100%;
   }
 
   .modal-stat {
-    padding: 12px;
+    padding: 8px;
   }
 
   .stat-label {
-    font-size: 0.65rem;
+    font-size: 0.55rem;
+    margin-bottom: 3px;
   }
 
   .stat-value {
-    font-size: 1.1rem;
+    font-size: 0.9rem;
   }
 
   .instagram-btn {
-    padding: 10px 20px;
-    font-size: 0.8rem;
+    padding: 8px 14px;
+    font-size: 0.65rem;
+    margin-top: 4px;
+    width: 100%;
   }
 
   .modal-close {
-    width: 45px;
-    height: 45px;
-    font-size: 1.8rem;
-    top: -55px;
-    right: 5px;
+    width: 50px;
+    height: 50px;
+    font-size: 2rem;
+    top: calc(50% - 35vh - 80px);
+    right: calc(50% - 35vw - 60px);
     background: rgba(212, 175, 55, 0.95);
     border: 2px solid rgba(212, 175, 55, 1);
     box-shadow: 0 4px 20px rgba(212, 175, 55, 0.8);
     z-index: 10001;
+    position: fixed;
   }
 }
