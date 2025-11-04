@@ -24,6 +24,13 @@
   gap: 40px;
   width: max-content;
   animation: scrollPartners 15s linear infinite;
+  touch-action: pan-y;
+  user-select: none;
+}
+
+.partners-track.dragging {
+  animation-play-state: paused !important;
+  transition: none;
 }
 
 @keyframes scrollPartners {

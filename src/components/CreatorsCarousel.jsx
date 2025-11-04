@@ -1,10 +1,15 @@
-import { useState, useEffect } from 'react'
+import { useState, useEffect, useRef } from 'react'
 import { motion, AnimatePresence } from 'framer-motion'
 import { creatorsData } from '../data/creators'
 import './CreatorsCarousel.css'
 
 const CreatorsCarousel = () => {
   const [selectedCreator, setSelectedCreator] = useState(null)
+  const [isDragging, setIsDragging] = useState(false)
+  const carouselRef = useRef(null)
+  const trackRef = useRef(null)
+  const startX = useRef(0)
+  const scrollLeft = useRef(0)
 
   useEffect(() => {
     if (selectedCreator) {
@@ -17,13 +22,50 @@ const CreatorsCarousel = () => {
     }
   }, [selectedCreator])
 
+  // Gestion du swipe tactile
+  const handleTouchStart = (e) => {
+    setIsDragging(true)
+    startX.current = e.touches[0].pageX
+    if (trackRef.current) {
+      const computedStyle = window.getComputedStyle(trackRef.current)
+      const matrix = new DOMMatrix(computedStyle.transform)
+      scrollLeft.current = matrix.m41
+    }
+  }
+
+  const handleTouchMove = (e) => {
+    if (!isDragging) return
+    e.preventDefault()
+    const x = e.touches[0].pageX
+    const walk = (x - startX.current) * 2
+    if (trackRef.current) {
+      trackRef.current.style.transform = `translateX(${scrollLeft.current + walk}px)`
+    }
+  }
+
+  const handleTouchEnd = () => {
+    setIsDragging(false)
+    // Reprendre l'animation après un court délai
+    if (trackRef.current) {
+      setTimeout(() => {
+        trackRef.current.style.transform = ''
+      }, 100)
+    }
+  }
+
   // EXACTEMENT 2 fois pour la boucle parfaite
   const allCreators = [...creatorsData, ...creatorsData]
 
   return (
     <>
-      <div className="creators-carousel">
-        <div className="carousel-track">
+      <div 
+        className="creators-carousel" 
+        ref={carouselRef}
+        onTouchStart={handleTouchStart}
+        onTouchMove={handleTouchMove}
+        onTouchEnd={handleTouchEnd}
+      >
+        <div className={`carousel-track ${isDragging ? 'dragging' : ''}`} ref={trackRef}>
           {allCreators.map((creator, index) => (
             <div
               key={index}

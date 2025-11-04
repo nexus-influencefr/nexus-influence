@@ -1,9 +1,44 @@
+import { useState, useRef } from 'react'
 import { motion } from 'framer-motion'
 import AnimatedSection from '../components/AnimatedSection'
 import { partnersData } from '../data/partners'
 import './Partners.css'
 
 const Partners = () => {
+  const [isDragging, setIsDragging] = useState(false)
+  const trackRef = useRef(null)
+  const startX = useRef(0)
+  const scrollLeft = useRef(0)
+
+  const handleTouchStart = (e) => {
+    setIsDragging(true)
+    startX.current = e.touches[0].pageX
+    if (trackRef.current) {
+      const computedStyle = window.getComputedStyle(trackRef.current)
+      const matrix = new DOMMatrix(computedStyle.transform)
+      scrollLeft.current = matrix.m41
+    }
+  }
+
+  const handleTouchMove = (e) => {
+    if (!isDragging) return
+    e.preventDefault()
+    const x = e.touches[0].pageX
+    const walk = (x - startX.current) * 2
+    if (trackRef.current) {
+      trackRef.current.style.transform = `translateX(${scrollLeft.current + walk}px)`
+    }
+  }
+
+  const handleTouchEnd = () => {
+    setIsDragging(false)
+    if (trackRef.current) {
+      setTimeout(() => {
+        trackRef.current.style.transform = ''
+      }, 100)
+    }
+  }
+
   return (
     <div className="partners-page">
       <section className="partners-hero">
@@ -23,8 +58,13 @@ const Partners = () => {
 
       <section className="partners-carousel-section">
         <div className="container">
-          <div className="partners-slider">
-            <div className="partners-track">
+          <div 
+            className="partners-slider"
+            onTouchStart={handleTouchStart}
+            onTouchMove={handleTouchMove}
+            onTouchEnd={handleTouchEnd}
+          >
+            <div className={`partners-track ${isDragging ? 'dragging' : ''}`} ref={trackRef}>
               {[...partnersData, ...partnersData].map((partner, index) => {
                 const content = (
                   <>
