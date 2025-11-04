@@ -6,6 +6,7 @@ import './Partners.css'
 
 const Partners = () => {
   const [isDragging, setIsDragging] = useState(false)
+  const [currentIndex, setCurrentIndex] = useState(0)
   const trackRef = useRef(null)
   const startX = useRef(0)
   const scrollLeft = useRef(0)
@@ -64,6 +65,33 @@ const Partners = () => {
     }
   }
 
+  // Navigation avec flèches (mobile)
+  const handlePrev = () => {
+    const newIndex = (currentIndex - 1 + partnersData.length) % partnersData.length
+    setCurrentIndex(newIndex)
+    if (trackRef.current) {
+      trackRef.current.style.animationPlayState = 'paused'
+      trackRef.current.style.transform = `translateX(-${newIndex * 360}px)`
+      setTimeout(() => {
+        trackRef.current.style.animationPlayState = 'running'
+        trackRef.current.style.transform = ''
+      }, 300)
+    }
+  }
+
+  const handleNext = () => {
+    const newIndex = (currentIndex + 1) % partnersData.length
+    setCurrentIndex(newIndex)
+    if (trackRef.current) {
+      trackRef.current.style.animationPlayState = 'paused'
+      trackRef.current.style.transform = `translateX(-${newIndex * 360}px)`
+      setTimeout(() => {
+        trackRef.current.style.animationPlayState = 'running'
+        trackRef.current.style.transform = ''
+      }, 300)
+    }
+  }
+
   return (
     <div className="partners-page">
       <section className="partners-hero">
@@ -93,6 +121,18 @@ const Partners = () => {
             onMouseUp={handleMouseUp}
             onMouseLeave={handleMouseUp}
           >
+            {/* Flèches de navigation mobile */}
+            <button className="partners-arrow partners-arrow-left" onClick={handlePrev}>
+              <svg viewBox="0 0 24 24" fill="currentColor">
+                <path d="M15.41 7.41L14 6l-6 6 6 6 1.41-1.41L10.83 12z"/>
+              </svg>
+            </button>
+            <button className="partners-arrow partners-arrow-right" onClick={handleNext}>
+              <svg viewBox="0 0 24 24" fill="currentColor">
+                <path d="M10 6L8.59 7.41 13.17 12l-4.58 4.59L10 18l6-6z"/>
+              </svg>
+            </button>
+
             <div className={`partners-track ${isDragging ? 'dragging' : ''}`} ref={trackRef}>
               {[...partnersData, ...partnersData].map((partner, index) => {
                 const content = (

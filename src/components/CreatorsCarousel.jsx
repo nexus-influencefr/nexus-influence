@@ -6,6 +6,7 @@ import './CreatorsCarousel.css'
 const CreatorsCarousel = () => {
   const [selectedCreator, setSelectedCreator] = useState(null)
   const [isDragging, setIsDragging] = useState(false)
+  const [currentIndex, setCurrentIndex] = useState(0)
   const carouselRef = useRef(null)
   const trackRef = useRef(null)
   const startX = useRef(0)
@@ -77,6 +78,33 @@ const CreatorsCarousel = () => {
     }
   }
 
+  // Navigation avec flèches (mobile)
+  const handlePrev = () => {
+    const newIndex = (currentIndex - 1 + creatorsData.length) % creatorsData.length
+    setCurrentIndex(newIndex)
+    if (trackRef.current) {
+      trackRef.current.style.animationPlayState = 'paused'
+      trackRef.current.style.transform = `translateX(-${newIndex * 330}px)`
+      setTimeout(() => {
+        trackRef.current.style.animationPlayState = 'running'
+        trackRef.current.style.transform = ''
+      }, 300)
+    }
+  }
+
+  const handleNext = () => {
+    const newIndex = (currentIndex + 1) % creatorsData.length
+    setCurrentIndex(newIndex)
+    if (trackRef.current) {
+      trackRef.current.style.animationPlayState = 'paused'
+      trackRef.current.style.transform = `translateX(-${newIndex * 330}px)`
+      setTimeout(() => {
+        trackRef.current.style.animationPlayState = 'running'
+        trackRef.current.style.transform = ''
+      }, 300)
+    }
+  }
+
   // EXACTEMENT 2 fois pour la boucle parfaite
   const allCreators = [...creatorsData, ...creatorsData]
 
@@ -93,6 +121,18 @@ const CreatorsCarousel = () => {
         onMouseUp={handleMouseUp}
         onMouseLeave={handleMouseUp}
       >
+        {/* Flèches de navigation mobile */}
+        <button className="carousel-arrow carousel-arrow-left" onClick={handlePrev}>
+          <svg viewBox="0 0 24 24" fill="currentColor">
+            <path d="M15.41 7.41L14 6l-6 6 6 6 1.41-1.41L10.83 12z"/>
+          </svg>
+        </button>
+        <button className="carousel-arrow carousel-arrow-right" onClick={handleNext}>
+          <svg viewBox="0 0 24 24" fill="currentColor">
+            <path d="M10 6L8.59 7.41 13.17 12l-4.58 4.59L10 18l6-6z"/>
+          </svg>
+        </button>
+
         <div className={`carousel-track ${isDragging ? 'dragging' : ''}`} ref={trackRef}>
           {allCreators.map((creator, index) => (
             <div
