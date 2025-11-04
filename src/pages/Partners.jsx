@@ -1,0 +1,111 @@
+import { motion } from 'framer-motion'
+import AnimatedSection from '../components/AnimatedSection'
+import { partnersData } from '../data/partners'
+import './Partners.css'
+
+const Partners = () => {
+  return (
+    <div className="partners-page">
+      <section className="partners-hero">
+        <div className="container">
+          <AnimatedSection>
+            <div className="page-header">
+              <span className="section-label">Nos Collaborations</span>
+              <h1>Partenaires</h1>
+              <div className="gold-line"></div>
+              <p className="page-description">
+                Les marques de confiance qui collaborent avec nos créateurs
+              </p>
+            </div>
+          </AnimatedSection>
+        </div>
+      </section>
+
+      <section className="partners-carousel-section">
+        <div className="container">
+          <div className="partners-slider">
+            <div className="partners-track">
+              {[...partnersData, ...partnersData].map((partner, index) => {
+                const content = (
+                  <>
+                    <div className="partner-logo">
+                      <img 
+                        src={partner.logo} 
+                        alt={partner.name}
+                        className="partner-logo-img"
+                      />
+                    </div>
+                    <h3 className="partner-name">{partner.name}</h3>
+                    <p className="partner-desc">{partner.description}</p>
+                  </>
+                )
+
+                return partner.website ? (
+                  <a 
+                    key={index} 
+                    href={partner.website}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="partner-item partner-item-link"
+                  >
+                    {content}
+                  </a>
+                ) : (
+                  <div key={index} className="partner-item">
+                    {content}
+                  </div>
+                )
+              })}
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section className="partners-values-section dark-section">
+        <div className="container">
+          <AnimatedSection>
+            <div className="section-header">
+              <span className="section-label">Nos Engagements</span>
+              <h2>Nos Valeurs</h2>
+              <div className="gold-line"></div>
+            </div>
+          </AnimatedSection>
+
+          <div className="values-grid">
+            {[
+              { 
+                title: 'Liberté créative', 
+                desc: 'Nous préservons votre authenticité et votre style unique dans chaque collaboration.' 
+              },
+              { 
+                title: 'Excellence', 
+                desc: 'Un souci du détail permanent pour garantir la qualité de chaque partenariat.' 
+              },
+              { 
+                title: 'Transparence', 
+                desc: 'Communication claire et honnête à chaque étape de notre collaboration.' 
+              },
+              { 
+                title: 'Ambition', 
+                desc: 'Nous croyons en vos objectifs les plus audacieux et vous aidons à les réaliser.' 
+              }
+            ].map((value, index) => (
+              <AnimatedSection key={index} delay={index * 0.1}>
+                <motion.div
+                  className="value-card"
+                  whileHover={{ scale: 1.05 }}
+                >
+                  <h4>{value.title}</h4>
+                  <p>{value.desc}</p>
+                </motion.div>
+              </AnimatedSection>
+            ))}
+          </div>
+        </div>
+      </section>
+    </div>
+  )
+}
+
+export default Partners
+
