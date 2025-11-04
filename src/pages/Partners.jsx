@@ -7,6 +7,7 @@ import './Partners.css'
 const Partners = () => {
   const [isDragging, setIsDragging] = useState(false)
   const [currentIndex, setCurrentIndex] = useState(0)
+  const [isManualMode, setIsManualMode] = useState(false)
   const trackRef = useRef(null)
   const startX = useRef(0)
   const scrollLeft = useRef(0)
@@ -67,28 +68,38 @@ const Partners = () => {
 
   // Navigation avec flèches (mobile)
   const handlePrev = () => {
+    if (!isManualMode) {
+      setIsManualMode(true)
+      if (trackRef.current) {
+        trackRef.current.style.animation = 'none'
+      }
+    }
     const newIndex = (currentIndex - 1 + partnersData.length) % partnersData.length
     setCurrentIndex(newIndex)
     if (trackRef.current) {
-      trackRef.current.style.animationPlayState = 'paused'
-      trackRef.current.style.transform = `translateX(-${newIndex * 360}px)`
-      setTimeout(() => {
-        trackRef.current.style.animationPlayState = 'running'
-        trackRef.current.style.transform = ''
-      }, 300)
+      // Centrer la carte : largeur écran / 2 - largeur carte / 2 - position carte
+      const screenCenter = window.innerWidth / 2
+      const cardCenter = 160 // 320px / 2
+      const offset = screenCenter - cardCenter - (newIndex * 360)
+      trackRef.current.style.transform = `translateX(${offset}px)`
     }
   }
 
   const handleNext = () => {
+    if (!isManualMode) {
+      setIsManualMode(true)
+      if (trackRef.current) {
+        trackRef.current.style.animation = 'none'
+      }
+    }
     const newIndex = (currentIndex + 1) % partnersData.length
     setCurrentIndex(newIndex)
     if (trackRef.current) {
-      trackRef.current.style.animationPlayState = 'paused'
-      trackRef.current.style.transform = `translateX(-${newIndex * 360}px)`
-      setTimeout(() => {
-        trackRef.current.style.animationPlayState = 'running'
-        trackRef.current.style.transform = ''
-      }, 300)
+      // Centrer la carte : largeur écran / 2 - largeur carte / 2 - position carte
+      const screenCenter = window.innerWidth / 2
+      const cardCenter = 160 // 320px / 2
+      const offset = screenCenter - cardCenter - (newIndex * 360)
+      trackRef.current.style.transform = `translateX(${offset}px)`
     }
   }
 
@@ -160,12 +171,12 @@ const Partners = () => {
                     {content}
                   </a>
                 ) : (
-                  <div key={index} className="partner-item">
+              <div key={index} className="partner-item">
                     {content}
                   </div>
                 )
               })}
-            </div>
+              </div>
           </div>
         </div>
       </section>

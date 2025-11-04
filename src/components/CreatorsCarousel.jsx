@@ -7,6 +7,7 @@ const CreatorsCarousel = () => {
   const [selectedCreator, setSelectedCreator] = useState(null)
   const [isDragging, setIsDragging] = useState(false)
   const [currentIndex, setCurrentIndex] = useState(0)
+  const [isManualMode, setIsManualMode] = useState(false)
   const carouselRef = useRef(null)
   const trackRef = useRef(null)
   const startX = useRef(0)
@@ -80,28 +81,38 @@ const CreatorsCarousel = () => {
 
   // Navigation avec flèches (mobile)
   const handlePrev = () => {
+    if (!isManualMode) {
+      setIsManualMode(true)
+      if (trackRef.current) {
+        trackRef.current.style.animation = 'none'
+      }
+    }
     const newIndex = (currentIndex - 1 + creatorsData.length) % creatorsData.length
     setCurrentIndex(newIndex)
     if (trackRef.current) {
-      trackRef.current.style.animationPlayState = 'paused'
-      trackRef.current.style.transform = `translateX(-${newIndex * 330}px)`
-      setTimeout(() => {
-        trackRef.current.style.animationPlayState = 'running'
-        trackRef.current.style.transform = ''
-      }, 300)
+      // Centrer la carte : largeur écran / 2 - largeur carte / 2 - position carte
+      const screenCenter = window.innerWidth / 2
+      const cardCenter = 150 // 300px / 2
+      const offset = screenCenter - cardCenter - (newIndex * 330)
+      trackRef.current.style.transform = `translateX(${offset}px)`
     }
   }
 
   const handleNext = () => {
+    if (!isManualMode) {
+      setIsManualMode(true)
+      if (trackRef.current) {
+        trackRef.current.style.animation = 'none'
+      }
+    }
     const newIndex = (currentIndex + 1) % creatorsData.length
     setCurrentIndex(newIndex)
     if (trackRef.current) {
-      trackRef.current.style.animationPlayState = 'paused'
-      trackRef.current.style.transform = `translateX(-${newIndex * 330}px)`
-      setTimeout(() => {
-        trackRef.current.style.animationPlayState = 'running'
-        trackRef.current.style.transform = ''
-      }, 300)
+      // Centrer la carte : largeur écran / 2 - largeur carte / 2 - position carte
+      const screenCenter = window.innerWidth / 2
+      const cardCenter = 150 // 300px / 2
+      const offset = screenCenter - cardCenter - (newIndex * 330)
+      trackRef.current.style.transform = `translateX(${offset}px)`
     }
   }
 
@@ -135,8 +146,8 @@ const CreatorsCarousel = () => {
 
         <div className={`carousel-track ${isDragging ? 'dragging' : ''}`} ref={trackRef}>
           {allCreators.map((creator, index) => (
-            <div
-              key={index}
+            <div 
+              key={index} 
               className="carousel-item"
               onClick={() => setSelectedCreator(creator)}
             >
@@ -193,7 +204,7 @@ const CreatorsCarousel = () => {
                 <p className="modal-handle">{selectedCreator.handle}</p>
                 <p className="modal-type">{selectedCreator.type}</p>
                 <p className="modal-desc">{selectedCreator.description}</p>
-
+                
                 <div className="modal-stats">
                   <div className="modal-stat">
                     <span className="stat-label">Abonnés</span>
@@ -205,7 +216,7 @@ const CreatorsCarousel = () => {
                   </div>
                 </div>
 
-                <a
+                <a 
                   href={selectedCreator.instagram}
                   target="_blank"
                   rel="noopener noreferrer"
