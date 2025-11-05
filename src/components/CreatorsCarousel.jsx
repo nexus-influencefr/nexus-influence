@@ -56,6 +56,7 @@ const CreatorsCarousel = () => {
 
   const handleTouchMove = (e) => {
     if (!isDragging || !trackRef.current) return
+    e.stopPropagation()
     const x = e.touches[0].pageX
     const walk = (x - startX.current) * 1.5
     trackRef.current.style.transform = `translateX(${scrollLeft.current + walk}px)`

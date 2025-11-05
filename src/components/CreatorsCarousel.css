@@ -18,9 +18,11 @@
   border-radius: 50%;
   color: #000;
   cursor: pointer;
-  z-index: 100;
-  transition: all 0.3s ease;
+  z-index: 1000;
+  transition: transform 0.2s ease;
   box-shadow: 0 8px 25px rgba(212, 175, 55, 0.6);
+  touch-action: none;
+  pointer-events: auto;
 }
 
 .carousel-arrow svg {
