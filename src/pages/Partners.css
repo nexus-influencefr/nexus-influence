@@ -22,42 +22,38 @@
 /* Flèches de navigation - cachées sur desktop */
 .partners-arrow {
   display: none;
-  position: absolute;
+  position: fixed;
   top: 50%;
   transform: translateY(-50%);
-  width: 50px;
-  height: 50px;
-  background: rgba(212, 175, 55, 0.9);
+  width: 55px;
+  height: 55px;
+  background: rgba(212, 175, 55, 0.95);
   border: none;
   border-radius: 50%;
   color: #000;
   cursor: pointer;
-  z-index: 10;
+  z-index: 100;
   transition: all 0.3s ease;
-  box-shadow: 0 5px 20px rgba(212, 175, 55, 0.4);
+  box-shadow: 0 8px 25px rgba(212, 175, 55, 0.6);
 }
 
 .partners-arrow svg {
-  width: 28px;
-  height: 28px;
+  width: 30px;
+  height: 30px;
 }
 
 .partners-arrow:active {
-  transform: translateY(-50%) scale(0.95);
-  box-shadow: 0 3px 10px rgba(212, 175, 55, 0.6);
+  transform: translateY(-50%) scale(0.9);
+  box-shadow: 0 5px 15px rgba(212, 175, 55, 0.8);
+  background: rgba(212, 175, 55, 1);
 }
 
 .partners-arrow-left {
-  left: 5%;
+  left: 15px;
 }
 
 .partners-arrow-right {
-  right: 5%;
-}
-
-.partners-track.dragging ~ .partners-arrow {
-  opacity: 0;
-  pointer-events: none;
+  right: 15px;
 }
 
 /* Afficher les flèches sur mobile */
