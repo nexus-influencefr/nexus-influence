@@ -31,29 +31,31 @@ export const analyzeAndRespond = (userMessage) => {
     return `Les taux d'engagement de nos créateurs sont confidentiels ! Mais tous ont un excellent engagement. Pour en savoir plus : contact@nexusinfluence.fr ! 📊`
   }
 
-  // CRÉATEURS SPÉCIFIQUES (APRÈS LES TARIFS - avec exclusion des questions de prix)
-  if (/\bflo\b/.test(normalized) && !/(tarif|prix|coute|combien|partenariat)/.test(normalized)) {
-    return `Flo (@floo.bdc), créateur lifestyle & mode ! 4.6K abonnés. Il partage du contenu style et créativité. On l'accompagne sur ses collabs. Tu veux voir son profil ?`
-  }
-  
-  if (/\bola\b|olary/.test(normalized) && !/(tarif|prix|coute|combien|partenariat)/.test(normalized)) {
-    return `Olary (@cocaola___), créatrice lifestyle, échecs & Twitch ! 23.3K abonnés. Contenu authentique et passion pour les échecs. On bosse ensemble sur sa stratégie ! Curieux ?`
-  }
-  
-  if (/\balexis\b/.test(normalized) && !/(tarif|prix|coute|combien|partenariat)/.test(normalized)) {
-    return `Alexis (@legarspolyvalent), expert fitness & bien-être ! 1.5K abonnés. Il inspire sa commu. On l'accompagne ! Tu es dans le fitness ?`
-  }
-  
-  if (/\balice\b/.test(normalized) && !/(tarif|prix|coute|combien|partenariat)/.test(normalized)) {
-    return `Alice (@rossetalice), créatrice mode & mannequinat ! 2.8K abonnés. Mannequin professionnelle avec un style unique. On gère sa stratégie mode ! Joli profil non ?`
-  }
+  // CRÉATEURS SPÉCIFIQUES - Vérifier d'abord qu'il ne s'agit PAS d'une question de prix
+  if (!isPricing) {
+    if (/\bflo\b/.test(normalized)) {
+      return `Flo (@floo.bdc), créateur lifestyle & mode ! 4.6K abonnés. Il partage du contenu style et créativité. On l'accompagne sur ses collabs. Tu veux voir son profil ?`
+    }
+    
+    if (/\bola\b|olary/.test(normalized)) {
+      return `Olary (@cocaola___), créatrice lifestyle, échecs & Twitch ! 23.3K abonnés. Contenu authentique et passion pour les échecs. On bosse ensemble sur sa stratégie ! Curieux ?`
+    }
+    
+    if (/\balexis\b/.test(normalized)) {
+      return `Alexis (@legarspolyvalent), expert fitness & bien-être ! 1.5K abonnés. Il inspire sa commu. On l'accompagne ! Tu es dans le fitness ?`
+    }
+    
+    if (/\balice\b/.test(normalized)) {
+      return `Alice (@rossetalice), créatrice mode & mannequinat ! 2.8K abonnés. Mannequin professionnelle avec un style unique. On gère sa stratégie mode ! Joli profil non ?`
+    }
 
-  if (/\bgeo\b|geoffroy/.test(normalized) && !/(tarif|prix|coute|combien|partenariat)/.test(normalized)) {
-    return `Geoffroy (@life_of_geo_), jeune entrepreneur passionné d'horlogerie ! 300 abonnés. Il a monté sa propre boîte en horlogerie et partage son aventure entrepreneuriale. On l'accompagne sur sa croissance ! Passionnant non ?`
-  }
+    if (/\bgeo\b|geoffroy/.test(normalized)) {
+      return `Geoffroy (@life_of_geo_), jeune entrepreneur passionné d'horlogerie ! 300 abonnés. Il a monté sa propre boîte en horlogerie et partage son aventure entrepreneuriale. On l'accompagne sur sa croissance ! Passionnant non ?`
+    }
 
-  if (/august|outdoor|ginger/.test(normalized) && !/(tarif|prix|coute|combien|partenariat)/.test(normalized)) {
-    return `August Vallat (@outdoorgingerchannel) ! Un créateur outdoor qu'on a accompagné avant même de lancer Nexus Influence officiellement. Il a bossé avec Pierre et Vasco sur sa stratégie et ses partenariats. Un vrai succès ! Tu le connais ?`
+    if (/august|outdoor|ginger/.test(normalized)) {
+      return `August Vallat (@outdoorgingerchannel) ! Un créateur outdoor qu'on a accompagné avant même de lancer Nexus Influence officiellement. Il a bossé avec Pierre et Vasco sur sa stratégie et ses partenariats. Un vrai succès ! Tu le connais ?`
+    }
   }
   
   // PARTENAIRES
@@ -191,13 +193,8 @@ export const analyzeAndRespond = (userMessage) => {
     return `Email : contact@nexusinfluence.fr ou tél : 06 26 45 21 65. On répond vite ! Tu as un projet ?`
   }
   
-  // TARIFS DES CRÉATEURS SPÉCIFIQUES
-  if (/(tarif|prix|coute|combien|partenariat)/.test(normalized) && /flo|ola|olary|alice|alexis|geo|geoffroy/.test(normalized)) {
-    return `Pour connaître les tarifs de nos créateurs, envoie-nous un DM sur Instagram @nexus__influence ou un email à contact@nexusinfluence.fr ! Tu peux aussi passer directement par notre page Contact sur le site. On te répond rapidement avec tous les détails ! 💰`
-  }
-  
-  // TARIFS GÉNÉRAUX
-  if (/tarif|prix|coute/.test(normalized)) {
+  // TARIFS GÉNÉRAUX (seulement si pas de créateur mentionné)
+  if (/tarif|prix|coute/.test(normalized) && !isCreatorMentioned) {
     return `Nos conditions varient selon l'accompagnement. Toujours équitable et transparent ! Pour ton cas : contact@nexusinfluence.fr`
   }
   
