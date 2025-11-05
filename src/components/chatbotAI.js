@@ -12,34 +12,39 @@ export const analyzeAndRespond = (userMessage) => {
     .replace(/\bpk\b/g, 'pourquoi')
     .replace(/\bvs\b/g, 'vous')
   
-  // CRÉATEURS SPÉCIFIQUES
-  if (/\bflo\b/.test(normalized)) {
-    return `Flo (@floo.bdc), créateur lifestyle & mode ! 4.6K abonnés. Il partage du contenu style et créativité. On l'accompagne sur ses collabs. Tu veux voir son profil ?`
-  }
-  
-  if (/\bola\b|olary/.test(normalized)) {
-    return `Olary (@cocaola__), créatrice lifestyle, échecs & Twitch ! 23.3K abonnés. Contenu authentique et passion pour les échecs. On bosse ensemble sur sa stratégie ! Curieux ?`
-  }
-  
-  if (/\balexis\b/.test(normalized)) {
-    return `Alexis (@legarspolyvalent), expert fitness & bien-être ! 1.5K abonnés. Il inspire sa commu. On l'accompagne ! Tu es dans le fitness ?`
-  }
-  
-  if (/\balice\b/.test(normalized)) {
-    return `Alice (@rossetalice), créatrice mode & mannequinat ! 2.8K abonnés. Mannequin professionnelle avec un style unique. On gère sa stratégie mode ! Joli profil non ?`
+  // TARIFS DES CRÉATEURS SPÉCIFIQUES (PRIORITÉ - AVANT LA DESCRIPTION)
+  if (/(tarif|prix|coute|combien|partenariat)/.test(normalized) && /flo|ola|olary|alice|alexis|geo|geoffroy/.test(normalized)) {
+    return `Pour connaître les tarifs de nos créateurs et discuter d'un partenariat, envoie-nous un DM sur Instagram @nexus__influence ou un email à contact@nexusinfluence.fr ! Tu peux aussi passer directement par notre page Contact sur le site. On te répond rapidement avec tous les détails ! 💰📩`
   }
 
-  if (/\bgeo\b|geoffroy/.test(normalized)) {
-    return `Geoffroy (@life_of_geo_), jeune entrepreneur passionné d'horlogerie ! 300 abonnés. Il a monté sa propre boîte en horlogerie et partage son aventure entrepreneuriale. On l'accompagne sur sa croissance ! Passionnant non ?`
-  }
-
-  if (/august|outdoor|ginger/.test(normalized)) {
-    return `August Vallat (@outdoorgingerchannel) ! Un créateur outdoor qu'on a accompagné avant même de lancer Nexus Influence officiellement. Il a bossé avec Pierre et Vasco sur sa stratégie et ses partenariats. Un vrai succès ! Tu le connais ?`
-  }
-  
   // ENGAGEMENT
   if (/taux.*engagement|engagement.*de/.test(normalized) && /alice|flo|olary|alexis|geo/.test(normalized)) {
     return `Les taux d'engagement de nos créateurs sont confidentiels ! Mais tous ont un excellent engagement. Pour en savoir plus : contact@nexusinfluence.fr ! 📊`
+  }
+
+  // CRÉATEURS SPÉCIFIQUES (APRÈS LES TARIFS - avec exclusion des questions de prix)
+  if (/\bflo\b/.test(normalized) && !/(tarif|prix|coute|combien|partenariat)/.test(normalized)) {
+    return `Flo (@floo.bdc), créateur lifestyle & mode ! 4.6K abonnés. Il partage du contenu style et créativité. On l'accompagne sur ses collabs. Tu veux voir son profil ?`
+  }
+  
+  if (/\bola\b|olary/.test(normalized) && !/(tarif|prix|coute|combien|partenariat)/.test(normalized)) {
+    return `Olary (@cocaola___), créatrice lifestyle, échecs & Twitch ! 23.3K abonnés. Contenu authentique et passion pour les échecs. On bosse ensemble sur sa stratégie ! Curieux ?`
+  }
+  
+  if (/\balexis\b/.test(normalized) && !/(tarif|prix|coute|combien|partenariat)/.test(normalized)) {
+    return `Alexis (@legarspolyvalent), expert fitness & bien-être ! 1.5K abonnés. Il inspire sa commu. On l'accompagne ! Tu es dans le fitness ?`
+  }
+  
+  if (/\balice\b/.test(normalized) && !/(tarif|prix|coute|combien|partenariat)/.test(normalized)) {
+    return `Alice (@rossetalice), créatrice mode & mannequinat ! 2.8K abonnés. Mannequin professionnelle avec un style unique. On gère sa stratégie mode ! Joli profil non ?`
+  }
+
+  if (/\bgeo\b|geoffroy/.test(normalized) && !/(tarif|prix|coute|combien|partenariat)/.test(normalized)) {
+    return `Geoffroy (@life_of_geo_), jeune entrepreneur passionné d'horlogerie ! 300 abonnés. Il a monté sa propre boîte en horlogerie et partage son aventure entrepreneuriale. On l'accompagne sur sa croissance ! Passionnant non ?`
+  }
+
+  if (/august|outdoor|ginger/.test(normalized) && !/(tarif|prix|coute|combien|partenariat)/.test(normalized)) {
+    return `August Vallat (@outdoorgingerchannel) ! Un créateur outdoor qu'on a accompagné avant même de lancer Nexus Influence officiellement. Il a bossé avec Pierre et Vasco sur sa stratégie et ses partenariats. Un vrai succès ! Tu le connais ?`
   }
   
   // PARTENAIRES
