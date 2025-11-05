@@ -47,14 +47,114 @@ export const analyzeAndRespond = (userMessage) => {
     return `On travaille avec Italian Charms, Rosa Love, et Le Coffret à Montre ! Des marques quali. Tu peux les voir sur notre site onglet Partenaires ! 👀`
   }
   
-  // COMMISSION
-  if (/commission|prenez combien/.test(normalized)) {
-    return `Entre 15-25% sur les collabs qu'on gère, ou forfait mensuel. Chaque cas est unique, toujours en transparence ! Pour ton cas : contact@nexusinfluence.fr`
+  // COMMISSION & POURCENTAGE
+  if (/commission|pourcentage|prenez combien/.test(normalized)) {
+    return `On prend entre 15-25% sur les collabs qu'on gère, ou on peut travailler en forfait mensuel. Tout dépend du créateur et du type d'accompagnement. Toujours transparent ! 💰`
   }
   
   // RENTABLE CRÉATEUR
   if (/rentable/.test(normalized)) {
     return `Très rentable ! Nos créateurs augmentent leurs revenus de 150-300% en moyenne. Meilleures négo, plus de collabs, nouvelles sources... L'investissement se rentabilise vite !`
+  }
+
+  // GRILLE TARIFAIRE / FORMULES
+  if (/grille.*tarifaire|formule.*fixe|tarif.*fixe/.test(normalized)) {
+    return `On n'a pas de grille fixe ! Chaque créateur est unique, donc on adapte nos tarifs selon ton profil, ta commu, et tes objectifs. Contacte-nous pour un devis personnalisé : contact@nexusinfluence.fr 📋`
+  }
+
+  // TARIFS VARIABLES
+  if (/tarif.*varient|prix.*varient|different.*selon/.test(normalized)) {
+    return `Oui, nos tarifs s'adaptent à chaque créateur ! Ton nombre d'abonnés, ton engagement, tes objectifs... Chaque profil est unique. On te fait une offre sur-mesure ! 🎯`
+  }
+
+  // MENSUEL OU MISSION
+  if (/mensuel|mission|paiement.*mensuel/.test(normalized)) {
+    return `On propose les deux ! Soit un forfait mensuel pour un accompagnement continu, soit un tarif à la mission ponctuelle. On s'adapte à ce qui te convient le mieux ! 📅`
+  }
+
+  // COÛT D'ENTRÉE / PAYER AVANT
+  if (/cout.*entree|frais.*entree|payer.*avant|payer.*rejoindre/.test(normalized)) {
+    return `Aucun frais d'entrée ! Tu ne payes qu'une fois qu'on a validé ton profil et défini ensemble l'accompagnement. Pas de mauvaise surprise ! 🚀`
+  }
+
+  // FRAIS CACHÉS
+  if (/frais.*caches|cout.*supplementaire|frais.*supplementaire/.test(normalized)) {
+    return `Zéro frais caché ! Ce qu'on te dit au début, c'est ce que tu payes. Total transparence, c'est notre règle n°1. Si des coûts apparaissent, on t'en parle AVANT ! ✨`
+  }
+
+  // PETITS CRÉATEURS SANS BUDGET
+  if (/petit.*createur|sans.*budget|pas.*budget/.test(normalized)) {
+    return `On accompagne aussi les micro-créateurs ! Si ton budget est limité, on peut adapter notre modèle (commission uniquement, ou plan évolutif). L'important c'est ton potentiel ! 💪`
+  }
+
+  // PAIEMENT DES COLLABS
+  if (/paiement.*collaboration|comment.*paye|qui.*paye/.test(normalized)) {
+    return `Les marques te payent directement ! On gère la négo et le suivi, mais l'argent va direct sur ton compte. On prend notre % après. Simple et clair ! 💸`
+  }
+
+  // PACKS / ABONNEMENTS
+  if (/pack|abonnement/.test(normalized)) {
+    return `On a des formules mensuelles récurrentes et des packs ponctuels. Ça dépend de ce dont tu as besoin : accompagnement long terme ou coup de boost rapide ? Parlons-en ! 📦`
+  }
+
+  // MEDIA KIT INCLUS
+  if (/media.*kit.*inclus|tarif.*media.*kit/.test(normalized)) {
+    return `Oui ! Le media kit est souvent inclus dans nos formules d'accompagnement. On te fait un dossier de présentation pro pour séduire les marques. Beau et efficace ! 📄`
+  }
+
+  // BUDGET MINIMUM MARQUE
+  if (/budget.*minimum|campagne.*minimum/.test(normalized)) {
+    return `Pas de budget minimum fixe ! On s'adapte. Que tu sois une petite marque ou un gros annonceur, on trouve des solutions. Contacte-nous pour en discuter : contact@nexusinfluence.fr 💼`
+  }
+
+  // DEVIS / FORFAIT MARQUE
+  if (/devis|forfait.*marque|sur.*mesure/.test(normalized)) {
+    return `On fait uniquement du sur-mesure ! Chaque campagne est différente. Dis-nous ton projet, tes objectifs, ton budget, et on te prépare un devis personnalisé. contact@nexusinfluence.fr ✉️`
+  }
+
+  // COÛT CAMPAGNE
+  if (/cout.*campagne|combien.*campagne|prix.*campagne/.test(normalized)) {
+    return `Ça dépend du nombre de créateurs, du type de contenu, de la durée... Une campagne peut aller de quelques centaines à plusieurs milliers d'euros. On te fait un devis précis selon ton projet ! 📊`
+  }
+
+  // UGC / CRÉATION CONTENU
+  if (/ugc|creation.*contenu/.test(normalized)) {
+    return `Pour de la création de contenu UGC, nos tarifs varient selon le créateur, le nombre de contenus, et l'usage. On te met en relation avec le bon profil ! Contacte-nous : contact@nexusinfluence.fr 🎥`
+  }
+
+  // RÉDUCTIONS LONG TERME
+  if (/reduction|remise|longue.*duree/.test(normalized)) {
+    return `Oui ! On encourage les collabs sur le long terme. Si tu veux un accompagnement récurrent ou une campagne longue, on peut discuter de tarifs avantageux ! 🤝`
+  }
+
+  // FRAIS D'AGENCE
+  if (/frais.*agence/.test(normalized)) {
+    return `Nos frais sont clairs : soit un % sur les collabs (15-25%), soit un forfait mensuel. Tout est négocié dès le départ. Pas de surprise ! 💼`
+  }
+
+  // MOYENS DE PAIEMENT
+  if (/moyen.*paiement|comment.*payer/.test(normalized)) {
+    return `Virement bancaire, PayPal, ou autre selon ce qui t'arrange ! On est flexibles. Une fois qu'on démarre ensemble, on te donne tous les détails. 💳`
+  }
+
+  // ACOMPTE
+  if (/acompte|avance/.test(normalized)) {
+    return `Ça dépend de l'accompagnement ! Pour certaines missions, on peut demander un acompte. Mais tout est discuté et validé ensemble avant. Toujours transparent ! 🤝`
+  }
+
+  // PAIEMENT ÉCHELONNÉ
+  if (/paiement.*echelonne|payer.*plusieurs.*fois/.test(normalized)) {
+    return `Oui, c'est possible ! Surtout pour les accompagnements longs. On peut étaler les paiements pour faciliter. On s'adapte à toi ! 📅`
+  }
+
+  // TVA
+  if (/tva/.test(normalized)) {
+    return `Oui, nos tarifs sont HT (hors taxes). La TVA s'ajoute selon la législation en vigueur. On te fait un devis clair avec tout détaillé ! 📝`
+  }
+
+  // OBTENIR DEVIS
+  if (/obtenir.*devis|demander.*devis/.test(normalized)) {
+    return `Super simple ! Envoie-nous un message à contact@nexusinfluence.fr avec ton projet, tes besoins, et on te prépare un devis sur-mesure sous 48h max ! ✉️`
   }
   
   // SERVICES
