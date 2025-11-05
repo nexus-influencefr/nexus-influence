@@ -34,11 +34,16 @@
 }
 
 .carousel-arrow-left {
-  left: 10px;
+  left: 5%;
 }
 
 .carousel-arrow-right {
-  right: 10px;
+  right: 5%;
+}
+
+.carousel-track.dragging ~ .carousel-arrow {
+  opacity: 0;
+  pointer-events: none;
 }
 
 /* Afficher les flèches sur mobile */
@@ -357,6 +362,15 @@
   transition: all 0.3s ease;
 }
 
+.modal-stat-clickable {
+  text-decoration: none;
+  cursor: pointer;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
 .modal-stat:hover {
   background: rgba(212, 175, 55, 0.1);
   border-color: rgba(212, 175, 55, 0.4);
@@ -407,15 +421,16 @@
 @media (max-width: 768px) {
   .creator-modal {
     padding: 20px;
-    overflow-y: auto;
+    overflow-y: scroll;
     align-items: center;
     justify-content: center;
+    display: flex;
   }
 
   .creator-modal-content {
     grid-template-columns: 1fr;
     gap: 12px;
-    padding: 50px 20px 20px;
+    padding: 55px 20px 20px;
     width: 75vw;
     max-width: 75vw;
     height: auto;
@@ -426,6 +441,7 @@
     display: flex;
     flex-direction: column;
     box-sizing: border-box;
+    position: relative;
   }
   
   .modal-image {

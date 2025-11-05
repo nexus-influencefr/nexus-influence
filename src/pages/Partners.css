@@ -48,11 +48,16 @@
 }
 
 .partners-arrow-left {
-  left: 10px;
+  left: 5%;
 }
 
 .partners-arrow-right {
-  right: 10px;
+  right: 5%;
+}
+
+.partners-track.dragging ~ .partners-arrow {
+  opacity: 0;
+  pointer-events: none;
 }
 
 /* Afficher les flèches sur mobile */

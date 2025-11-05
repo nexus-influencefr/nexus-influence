@@ -1,4 +1,5 @@
 import { useState, useEffect, useRef } from 'react'
+import { Link } from 'react-router-dom'
 import { motion, AnimatePresence } from 'framer-motion'
 import { creatorsData } from '../data/creators'
 import './CreatorsCarousel.css'
@@ -93,8 +94,8 @@ const CreatorsCarousel = () => {
     if (trackRef.current) {
       trackRef.current.style.animationPlayState = 'running'
       trackRef.current.style.transform = ''
+      }
     }
-  }
 
   // Navigation avec flèches (mobile)
   const handlePrev = () => {
@@ -199,10 +200,10 @@ const CreatorsCarousel = () => {
                     <span className="stat-label">Abonnés</span>
                     <span className="stat-value">{selectedCreator.followers}</span>
                   </div>
-                  <div className="modal-stat">
+                  <Link to="/contact" className="modal-stat modal-stat-clickable" onClick={() => setSelectedCreator(null)}>
                     <span className="stat-label">Engagement</span>
                     <span className="stat-value">{selectedCreator.engagement}</span>
-                  </div>
+                  </Link>
                 </div>
 
                 <a 

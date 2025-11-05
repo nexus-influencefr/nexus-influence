@@ -452,11 +452,11 @@
   .brochure-modal-close:active {
     transform: rotate(90deg) scale(0.9);
     background: rgba(212, 175, 55, 1);
-  }
+}
 
   .brochure-modal-content h2 {
     font-size: 1.4rem;
-  }
+}
 
   .brochure-modal-intro {
     font-size: 0.85rem;
