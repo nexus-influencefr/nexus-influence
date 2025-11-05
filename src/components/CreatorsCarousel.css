@@ -420,8 +420,8 @@
 
 @media (max-width: 768px) {
   .creator-modal {
-    padding: 20px;
-    overflow-y: scroll;
+    padding: 0;
+    overflow-y: auto;
     align-items: center;
     justify-content: center;
     display: flex;
@@ -442,6 +442,7 @@
     flex-direction: column;
     box-sizing: border-box;
     position: relative;
+    margin: auto;
   }
   
   .modal-image {
