@@ -77,7 +77,12 @@ export const analyzeAndRespond = (userMessage) => {
     return `Email : contact@nexusinfluence.fr ou tél : 06 26 45 21 65. On répond vite ! Tu as un projet ?`
   }
   
-  // TARIFS
+  // TARIFS DES CRÉATEURS SPÉCIFIQUES
+  if (/(tarif|prix|coute|combien)/.test(normalized) && /flo|ola|alice|alexis|geo|geoffroy/.test(normalized)) {
+    return `Pour découvrir les tarifs de nos créateurs, contacte-nous par email à contact@nexusinfluence.fr ou sur Instagram @nexus__influence ! On te donnera tous les détails. 💰`
+  }
+  
+  // TARIFS GÉNÉRAUX
   if (/tarif|prix|coute/.test(normalized)) {
     return `Nos conditions varient selon l'accompagnement. Toujours équitable et transparent ! Pour ton cas : contact@nexusinfluence.fr`
   }
