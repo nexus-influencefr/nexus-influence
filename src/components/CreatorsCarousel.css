@@ -422,9 +422,11 @@
   .creator-modal {
     padding: 0;
     overflow-y: auto;
+    display: flex;
     align-items: center;
     justify-content: center;
-    display: flex;
+    padding-top: 0;
+    padding-bottom: 0;
   }
 
   .creator-modal-content {
@@ -434,7 +436,7 @@
     width: 75vw;
     max-width: 75vw;
     height: auto;
-    max-height: 75vh;
+    max-height: 70vh;
     overflow-y: auto;
     border-radius: 20px;
     transform: none;
@@ -442,7 +444,7 @@
     flex-direction: column;
     box-sizing: border-box;
     position: relative;
-    margin: auto;
+    margin: auto 0;
   }
   
   .modal-image {
