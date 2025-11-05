@@ -92,6 +92,24 @@
     animation: none !important;
     justify-content: flex-start;
   }
+
+  .partner-item {
+    width: 85vw;
+    min-width: 85vw;
+    padding: 35px 25px;
+  }
+
+  .partners-slider {
+    padding: 40px 0;
+  }
+
+  .partners-arrow-left {
+    left: 15px;
+  }
+
+  .partners-arrow-right {
+    right: 15px;
+  }
 }
 
 @keyframes scrollPartners {

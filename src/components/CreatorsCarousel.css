@@ -99,6 +99,25 @@
     animation: none !important;
     justify-content: flex-start;
   }
+
+  .carousel-item {
+    width: 85vw;
+    min-width: 85vw;
+    height: auto;
+    min-height: 450px;
+  }
+
+  .creators-carousel {
+    padding: 40px 0;
+  }
+
+  .carousel-arrow-left {
+    left: 15px;
+  }
+
+  .carousel-arrow-right {
+    right: 15px;
+  }
 }
 
 @keyframes carousel-scroll {
