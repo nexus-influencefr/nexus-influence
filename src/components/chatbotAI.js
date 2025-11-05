@@ -1,6 +1,11 @@
-// Système IA pour NexusBot
+// Système IA pour NexusBot avec NLP
+import { extractKeywords, matchesAny } from '../nlp/nlp'
+
 export const analyzeAndRespond = (userMessage) => {
   const msg = userMessage.toLowerCase().trim()
+  
+  // Extraction des mots-clés avec synonymes
+  const { base, expanded } = extractKeywords(userMessage)
   
   const normalized = msg
     .replace(/influance|influens/g, 'influence')
@@ -13,7 +18,11 @@ export const analyzeAndRespond = (userMessage) => {
     .replace(/\bvs\b/g, 'vous')
   
   // TARIFS DES CRÉATEURS SPÉCIFIQUES (PRIORITÉ - AVANT LA DESCRIPTION)
-  if (/(tarif|prix|coute|combien|partenariat)/.test(normalized) && /flo|ola|olary|alice|alexis|geo|geoffroy/.test(normalized)) {
+  // Utilise NLP pour détecter les intentions de tarifs/prix
+  const isPricing = matchesAny(expanded, ["tarif","prix","cout","combien","partenariat","budget","devis","honoraire","remuneration","facturation"])
+  const isCreatorMentioned = /flo|ola|olary|alice|alexis|geo|geoffroy/.test(normalized)
+  
+  if (isPricing && isCreatorMentioned) {
     return `Pour connaître les tarifs de nos créateurs et discuter d'un partenariat, envoie-nous un DM sur Instagram @nexus__influence ou un email à contact@nexusinfluence.fr ! Tu peux aussi passer directement par notre page Contact sur le site. On te répond rapidement avec tous les détails ! 💰📩`
   }
 
