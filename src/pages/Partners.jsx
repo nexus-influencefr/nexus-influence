@@ -1,4 +1,4 @@
-import { useState, useRef } from 'react'
+import { useState, useRef, useEffect } from 'react'
 import { motion } from 'framer-motion'
 import AnimatedSection from '../components/AnimatedSection'
 import { partnersData } from '../data/partners'
@@ -11,6 +11,23 @@ const Partners = () => {
   const trackRef = useRef(null)
   const startX = useRef(0)
   const scrollLeft = useRef(0)
+
+  // Mettre à jour la position du carousel sur mobile
+  useEffect(() => {
+    if (trackRef.current && window.innerWidth <= 768) {
+      const isMobile = window.matchMedia('(max-width: 768px)').matches
+      if (isMobile) {
+        // Centrer la carte actuelle
+        const cardWidth = 320
+        const gap = 40
+        const itemWidth = cardWidth + gap
+        const screenCenter = window.innerWidth / 2
+        const cardCenter = cardWidth / 2
+        const offset = screenCenter - cardCenter - (currentIndex * itemWidth)
+        trackRef.current.style.transform = `translateX(${offset}px)`
+      }
+    }
+  }, [currentIndex])
 
   const handleTouchStart = (e) => {
     setIsDragging(true)
@@ -68,39 +85,11 @@ const Partners = () => {
 
   // Navigation avec flèches (mobile)
   const handlePrev = () => {
-    if (!isManualMode) {
-      setIsManualMode(true)
-      if (trackRef.current) {
-        trackRef.current.style.animation = 'none'
-      }
-    }
-    const newIndex = (currentIndex - 1 + partnersData.length) % partnersData.length
-    setCurrentIndex(newIndex)
-    if (trackRef.current) {
-      // Centrer la carte : largeur écran / 2 - largeur carte / 2 - position carte
-      const screenCenter = window.innerWidth / 2
-      const cardCenter = 160 // 320px / 2
-      const offset = screenCenter - cardCenter - (newIndex * 360)
-      trackRef.current.style.transform = `translateX(${offset}px)`
-    }
+    setCurrentIndex((prev) => (prev - 1 + partnersData.length) % partnersData.length)
   }
 
   const handleNext = () => {
-    if (!isManualMode) {
-      setIsManualMode(true)
-      if (trackRef.current) {
-        trackRef.current.style.animation = 'none'
-      }
-    }
-    const newIndex = (currentIndex + 1) % partnersData.length
-    setCurrentIndex(newIndex)
-    if (trackRef.current) {
-      // Centrer la carte : largeur écran / 2 - largeur carte / 2 - position carte
-      const screenCenter = window.innerWidth / 2
-      const cardCenter = 160 // 320px / 2
-      const offset = screenCenter - cardCenter - (newIndex * 360)
-      trackRef.current.style.transform = `translateX(${offset}px)`
-    }
+    setCurrentIndex((prev) => (prev + 1) % partnersData.length)
   }
 
   return (

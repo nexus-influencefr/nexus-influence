@@ -24,6 +24,23 @@ const CreatorsCarousel = () => {
     }
   }, [selectedCreator])
 
+  // Mettre à jour la position du carousel sur mobile
+  useEffect(() => {
+    if (trackRef.current && window.innerWidth <= 768) {
+      const isMobile = window.matchMedia('(max-width: 768px)').matches
+      if (isMobile) {
+        // Centrer la carte actuelle
+        const cardWidth = 300
+        const gap = 30
+        const itemWidth = cardWidth + gap
+        const screenCenter = window.innerWidth / 2
+        const cardCenter = cardWidth / 2
+        const offset = screenCenter - cardCenter - (currentIndex * itemWidth)
+        trackRef.current.style.transform = `translateX(${offset}px)`
+      }
+    }
+  }, [currentIndex])
+
   // Gestion du swipe tactile
   const handleTouchStart = (e) => {
     setIsDragging(true)
@@ -81,39 +98,11 @@ const CreatorsCarousel = () => {
 
   // Navigation avec flèches (mobile)
   const handlePrev = () => {
-    if (!isManualMode) {
-      setIsManualMode(true)
-      if (trackRef.current) {
-        trackRef.current.style.animation = 'none'
-      }
-    }
-    const newIndex = (currentIndex - 1 + creatorsData.length) % creatorsData.length
-    setCurrentIndex(newIndex)
-    if (trackRef.current) {
-      // Centrer la carte : largeur écran / 2 - largeur carte / 2 - position carte
-      const screenCenter = window.innerWidth / 2
-      const cardCenter = 150 // 300px / 2
-      const offset = screenCenter - cardCenter - (newIndex * 330)
-      trackRef.current.style.transform = `translateX(${offset}px)`
-    }
+    setCurrentIndex((prev) => (prev - 1 + creatorsData.length) % creatorsData.length)
   }
 
   const handleNext = () => {
-    if (!isManualMode) {
-      setIsManualMode(true)
-      if (trackRef.current) {
-        trackRef.current.style.animation = 'none'
-      }
-    }
-    const newIndex = (currentIndex + 1) % creatorsData.length
-    setCurrentIndex(newIndex)
-    if (trackRef.current) {
-      // Centrer la carte : largeur écran / 2 - largeur carte / 2 - position carte
-      const screenCenter = window.innerWidth / 2
-      const cardCenter = 150 // 300px / 2
-      const offset = screenCenter - cardCenter - (newIndex * 330)
-      trackRef.current.style.transform = `translateX(${offset}px)`
-    }
+    setCurrentIndex((prev) => (prev + 1) % creatorsData.length)
   }
 
   // EXACTEMENT 2 fois pour la boucle parfaite
