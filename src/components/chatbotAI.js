@@ -178,8 +178,8 @@ export const analyzeAndRespond = (userMessage) => {
   }
   
   // TARIFS DES CRÉATEURS SPÉCIFIQUES
-  if (/(tarif|prix|coute|combien)/.test(normalized) && /flo|ola|alice|alexis|geo|geoffroy/.test(normalized)) {
-    return `Pour découvrir les tarifs de nos créateurs, contacte-nous par email à contact@nexusinfluence.fr ou sur Instagram @nexus__influence ! On te donnera tous les détails. 💰`
+  if (/(tarif|prix|coute|combien|partenariat)/.test(normalized) && /flo|ola|olary|alice|alexis|geo|geoffroy/.test(normalized)) {
+    return `Pour connaître les tarifs de nos créateurs, envoie-nous un DM sur Instagram @nexus__influence ou un email à contact@nexusinfluence.fr ! Tu peux aussi passer directement par notre page Contact sur le site. On te répond rapidement avec tous les détails ! 💰`
   }
   
   // TARIFS GÉNÉRAUX

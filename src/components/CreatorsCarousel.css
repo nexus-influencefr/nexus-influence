@@ -386,6 +386,23 @@
   flex-direction: column;
   align-items: center;
   justify-content: center;
+  position: relative;
+  background: rgba(212, 175, 55, 0.08);
+  border-color: rgba(212, 175, 55, 0.3);
+}
+
+.modal-stat-clickable::after {
+  content: '🔒 Cliquer pour plus d\'infos';
+  position: absolute;
+  bottom: 5px;
+  font-size: 0.7rem;
+  color: rgba(212, 175, 55, 0.9);
+  opacity: 0;
+  transition: opacity 0.3s ease;
+}
+
+.modal-stat-clickable:hover::after {
+  opacity: 1;
 }
 
 .modal-stat:hover {
@@ -393,6 +410,13 @@
   border-color: rgba(212, 175, 55, 0.4);
   transform: translateY(-3px);
   box-shadow: 0 10px 30px rgba(212, 175, 55, 0.2);
+}
+
+.modal-stat-clickable:hover {
+  background: rgba(212, 175, 55, 0.15);
+  border-color: rgba(212, 175, 55, 0.6);
+  transform: translateY(-5px);
+  box-shadow: 0 15px 40px rgba(212, 175, 55, 0.35);
 }
 
 .stat-label {
