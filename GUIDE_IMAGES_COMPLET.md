@@ -9,8 +9,8 @@
 - `logo.png` (fallback si pas de SVG)
 
 **Utilisation :**
-- Header (haut gauche avec "Nexus Influence.")
-- Footer (bas avec "Nexus Influence.")
+- Header (haut gauche avec "Nexus Circle.")
+- Footer (bas avec "Nexus Circle.")
 - Chatbot (avatar du bot, fond noir, rond)
 
 **Specs :**

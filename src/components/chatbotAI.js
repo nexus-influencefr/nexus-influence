@@ -23,12 +23,12 @@ export const analyzeAndRespond = (userMessage) => {
   const isCreatorMentioned = /flo|ola|olary|alice|alexis|geo|geoffroy/.test(normalized)
   
   if (isPricing && isCreatorMentioned) {
-    return `Pour connaître les tarifs de nos créateurs et discuter d'un partenariat, envoie-nous un DM sur Instagram @nexus__influence ou un email à contact@nexusinfluence.fr ! Tu peux aussi passer directement par notre page Contact sur le site. On te répond rapidement avec tous les détails ! 💰📩`
+    return `Pour connaître les tarifs de nos créateurs et discuter d'un partenariat, envoie-nous un DM sur Instagram @nexus__circle ou un email à contact@nexuscircle.fr ! Tu peux aussi passer directement par notre page Contact sur le site. On te répond rapidement avec tous les détails ! 💰📩`
   }
 
   // ENGAGEMENT
   if (/taux.*engagement|engagement.*de/.test(normalized) && /alice|flo|olary|alexis|geo/.test(normalized)) {
-    return `Les taux d'engagement de nos créateurs sont confidentiels ! Mais tous ont un excellent engagement. Pour en savoir plus : contact@nexusinfluence.fr ! 📊`
+    return `Les taux d'engagement de nos créateurs sont confidentiels ! Mais tous ont un excellent engagement. Pour en savoir plus : contact@nexuscircle.fr ! 📊`
   }
 
   // CRÉATEURS SPÉCIFIQUES - Vérifier d'abord qu'il ne s'agit PAS d'une question de prix
@@ -54,7 +54,7 @@ export const analyzeAndRespond = (userMessage) => {
     }
 
     if (/august|outdoor|ginger/.test(normalized)) {
-      return `August Vallat (@outdoorgingerchannel) ! Un créateur outdoor qu'on a accompagné avant même de lancer Nexus Influence officiellement. Il a bossé avec Pierre et Vasco sur sa stratégie et ses partenariats. Un vrai succès ! Tu le connais ?`
+      return `August Vallat (@outdoorgingerchannel) ! Un créateur outdoor qu'on a accompagné avant même de lancer Nexus Circle officiellement. Il a bossé avec Pierre et Vasco sur sa stratégie et ses partenariats. Un vrai succès ! Tu le connais ?`
     }
   }
   
@@ -75,7 +75,7 @@ export const analyzeAndRespond = (userMessage) => {
 
   // GRILLE TARIFAIRE / FORMULES
   if (/grille.*tarifaire|formule.*fixe|tarif.*fixe/.test(normalized)) {
-    return `On n'a pas de grille fixe ! Chaque créateur est unique, donc on adapte nos tarifs selon ton profil, ta commu, et tes objectifs. Contacte-nous pour un devis personnalisé : contact@nexusinfluence.fr 📋`
+    return `On n'a pas de grille fixe ! Chaque créateur est unique, donc on adapte nos tarifs selon ton profil, ta commu, et tes objectifs. Contacte-nous pour un devis personnalisé : contact@nexuscircle.fr 📋`
   }
 
   // TARIFS VARIABLES
@@ -120,12 +120,12 @@ export const analyzeAndRespond = (userMessage) => {
 
   // BUDGET MINIMUM MARQUE
   if (/budget.*minimum|campagne.*minimum/.test(normalized)) {
-    return `Pas de budget minimum fixe ! On s'adapte. Que tu sois une petite marque ou un gros annonceur, on trouve des solutions. Contacte-nous pour en discuter : contact@nexusinfluence.fr 💼`
+    return `Pas de budget minimum fixe ! On s'adapte. Que tu sois une petite marque ou un gros annonceur, on trouve des solutions. Contacte-nous pour en discuter : contact@nexuscircle.fr 💼`
   }
 
   // DEVIS / FORFAIT MARQUE
   if (/devis|forfait.*marque|sur.*mesure/.test(normalized)) {
-    return `On fait uniquement du sur-mesure ! Chaque campagne est différente. Dis-nous ton projet, tes objectifs, ton budget, et on te prépare un devis personnalisé. contact@nexusinfluence.fr ✉️`
+    return `On fait uniquement du sur-mesure ! Chaque campagne est différente. Dis-nous ton projet, tes objectifs, ton budget, et on te prépare un devis personnalisé. contact@nexuscircle.fr ✉️`
   }
 
   // COÛT CAMPAGNE
@@ -135,7 +135,7 @@ export const analyzeAndRespond = (userMessage) => {
 
   // UGC / CRÉATION CONTENU
   if (/ugc|creation.*contenu/.test(normalized)) {
-    return `Pour de la création de contenu UGC, nos tarifs varient selon le créateur, le nombre de contenus, et l'usage. On te met en relation avec le bon profil ! Contacte-nous : contact@nexusinfluence.fr 🎥`
+    return `Pour de la création de contenu UGC, nos tarifs varient selon le créateur, le nombre de contenus, et l'usage. On te met en relation avec le bon profil ! Contacte-nous : contact@nexuscircle.fr 🎥`
   }
 
   // RÉDUCTIONS LONG TERME
@@ -170,7 +170,7 @@ export const analyzeAndRespond = (userMessage) => {
 
   // OBTENIR DEVIS
   if (/obtenir.*devis|demander.*devis/.test(normalized)) {
-    return `Super simple ! Envoie-nous un message à contact@nexusinfluence.fr avec ton projet, tes besoins, et on te prépare un devis sur-mesure sous 48h max ! ✉️`
+    return `Super simple ! Envoie-nous un message à contact@nexuscircle.fr avec ton projet, tes besoins, et on te prépare un devis sur-mesure sous 48h max ! ✉️`
   }
   
   // SERVICES
@@ -180,7 +180,7 @@ export const analyzeAndRespond = (userMessage) => {
   
   // DEVENIR CRÉATEUR
   if (/(devenir|rejoindre).*(createur|nexus)/.test(normalized)) {
-    return `Envoie ton profil à contact@nexusinfluence.fr avec 2-3 lignes sur toi ! On étudie chaque profil et on revient vite. Tu as déjà une commu ?`
+    return `Envoie ton profil à contact@nexuscircle.fr avec 2-3 lignes sur toi ! On étudie chaque profil et on revient vite. Tu as déjà une commu ?`
   }
   
   // FONDATEURS
@@ -190,12 +190,12 @@ export const analyzeAndRespond = (userMessage) => {
   
   // CONTACT
   if (/contact|email|mail/.test(normalized)) {
-    return `Email : contact@nexusinfluence.fr ou tél : 06 26 45 21 65. On répond vite ! Tu as un projet ?`
+    return `Email : contact@nexuscircle.fr ou tél : 06 26 45 21 65. On répond vite ! Tu as un projet ?`
   }
   
   // TARIFS GÉNÉRAUX (seulement si pas de créateur mentionné)
   if (/tarif|prix|coute/.test(normalized) && !isCreatorMentioned) {
-    return `Nos conditions varient selon l'accompagnement. Toujours équitable et transparent ! Pour ton cas : contact@nexusinfluence.fr`
+    return `Nos conditions varient selon l'accompagnement. Toujours équitable et transparent ! Pour ton cas : contact@nexuscircle.fr`
   }
   
   // TYPES DE CRÉATEURS
@@ -400,7 +400,7 @@ export const analyzeAndRespond = (userMessage) => {
   
   // NEXUS GÉNÉRAL
   if (/cest quoi|quest-ce|nexus/.test(normalized)) {
-    return `Nexus Influence : agence d'accompagnement de créateurs. On t'aide à te professionnaliser, monétiser, et trouver des collabs quali. Mission : rendre l'influence plus humaine ! Qu'est-ce qui t'intéresse ?`
+    return `Nexus Circle : agence d'accompagnement de créateurs. On t'aide à te professionnaliser, monétiser, et trouver des collabs quali. Mission : rendre l'influence plus humaine ! Qu'est-ce qui t'intéresse ?`
   }
   
   // SALUT

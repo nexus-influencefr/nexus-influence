@@ -1,15 +1,15 @@
-# 📄 Brochure Nexus Influence
+# 📄 Brochure Nexus Circle
 
 Placez votre brochure PDF dans le dossier `public/` :
 
 ## Fichier requis :
 
-- `brochure-nexus-influence.pdf`
+- `brochure-nexus-circle.pdf`
 
 ## Spécifications :
 
 - **Format** : PDF
-- **Contenu** : Présentation de Nexus Influence, services détaillés, cas clients, tarifs
+- **Contenu** : Présentation de Nexus Circle, services détaillés, cas clients, tarifs
 - **Poids max** : 5MB recommandé
 - **Pages** : 4-8 pages idéalement
 

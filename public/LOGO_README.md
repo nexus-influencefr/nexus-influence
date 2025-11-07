@@ -1,4 +1,4 @@
-# Logo Nexus Influence
+# Logo Nexus Circle
 
 Placez le logo dans le dossier `public/` :
 
@@ -23,8 +23,8 @@ Placez le logo dans le dossier `public/` :
 ## Utilisation :
 
 Le logo apparaît à 3 endroits :
-1. **Header** : En haut à gauche avec le texte "Nexus Influence."
-2. **Footer** : En bas avec le texte "Nexus Influence."
+1. **Header** : En haut à gauche avec le texte "Nexus Circle."
+2. **Footer** : En bas avec le texte "Nexus Circle."
 3. **Chatbot** : Avatar du bot dans la fenêtre de chat (rond, fond noir)
 
 Le logo doit être simple, lisible et professionnel.

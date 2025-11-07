@@ -23,14 +23,14 @@ const Header = () => {
         <Link to="/" className="logo-container">
               <img 
             src="/logo.svg" 
-                alt="Nexus Influence" 
+                alt="Nexus Circle" 
             className="logo"
                 onError={(e) => {
                   e.target.style.display = 'none'
               e.target.nextSibling.style.marginLeft = '0'
                 }}
               />
-          <span className="logo-text">Nexus Influence.</span>
+          <span className="logo-text">Nexus Circle.</span>
           </Link>
 
         <nav className="nav-menu">

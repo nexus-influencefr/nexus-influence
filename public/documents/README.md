@@ -1,6 +1,6 @@
 # Documents
 
-## 📄 Brochure Nexus Influence
+## 📄 Brochure Nexus Circle
 
 Placez votre fichier PDF de brochure ici avec le nom exact suivant :
 

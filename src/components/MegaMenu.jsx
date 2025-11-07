@@ -170,8 +170,8 @@ const MegaMenu = ({ type, isActive }) => {
             N'hésitez pas à passer le cap et nous contacter, <strong>on ne mord pas !</strong>
           </p>
           <div className="contact-quick">
-                <a href="mailto:contact@nexusinfluence.fr" className="contact-quick-item">
-              📧 <span>contact@nexusinfluence.fr</span>
+                <a href="mailto:contact@nexuscircle.fr" className="contact-quick-item">
+              📧 <span>contact@nexuscircle.fr</span>
                 </a>
                 <a href="tel:+33626452165" className="contact-quick-item">
               📞 <span>06 26 45 21 65</span>

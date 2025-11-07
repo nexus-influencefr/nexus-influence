@@ -108,7 +108,7 @@ const Contact = () => {
       setTimeout(() => {
         const link = document.createElement('a')
         link.href = '/documents/brochure.pdf'
-        link.download = 'Brochure-Nexus-Influence.pdf'
+        link.download = 'Brochure-Nexus-Circle.pdf'
         document.body.appendChild(link)
         link.click()
         document.body.removeChild(link)
@@ -154,11 +154,11 @@ const Contact = () => {
                 </p>
 
                 <div className="contact-methods">
-                  <a href="mailto:contact@nexusinfluence.fr" className="contact-method">
+                  <a href="mailto:contact@nexuscircle.fr" className="contact-method">
                     <div className="method-icon">📧</div>
                     <div className="method-info">
                       <h4>Email</h4>
-                      <p>contact@nexusinfluence.fr</p>
+                      <p>contact@nexuscircle.fr</p>
                     </div>
                   </a>
 
@@ -171,7 +171,7 @@ const Contact = () => {
                   </a>
 
                   <a 
-                    href="https://instagram.com/nexus__influence" 
+                    href="https://instagram.com/nexus__circle" 
                     target="_blank" 
                     rel="noopener noreferrer"
                     className="contact-method"
@@ -183,12 +183,12 @@ const Contact = () => {
                     </div>
                     <div className="method-info">
                       <h4>Instagram</h4>
-                      <p>@nexus__influence</p>
+                      <p>@nexus__circle</p>
                     </div>
                   </a>
 
                   <a 
-                    href="https://www.linkedin.com/company/nexus-influence-fr" 
+                    href="https://www.linkedin.com/company/nexus-circle-fr" 
                     target="_blank" 
                     rel="noopener noreferrer"
                     className="contact-method"
@@ -200,7 +200,7 @@ const Contact = () => {
                     </div>
                     <div className="method-info">
                       <h4>LinkedIn</h4>
-                      <p>Nexus Influence</p>
+                      <p>Nexus Circle</p>
                     </div>
                   </a>
                 </div>

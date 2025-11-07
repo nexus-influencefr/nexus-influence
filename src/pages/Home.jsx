@@ -137,7 +137,7 @@ const Home = () => {
         <div className="container">
           <AnimatedSection>
           <div className="hero-content">
-              <div className="hero-brand">Nexus Influence</div>
+              <div className="hero-brand">Nexus Circle</div>
               <h1>Valorisez votre talent</h1>
               <p className="hero-subtitle">
                 L'agence qui accompagne les créateurs de contenu vers le succès
@@ -347,7 +347,7 @@ const Home = () => {
           <AnimatedSection delay={0.2}>
             <div className="about-content">
               <p className="about-text-main">
-                Nexus Influence est née d'une conviction : chaque créateur de contenu mérite un accompagnement professionnel pour transformer sa passion en carrière durable.
+                Nexus Circle est née d'une conviction : chaque créateur de contenu mérite un accompagnement professionnel pour transformer sa passion en carrière durable.
               </p>
               <p className="about-text-main">
                 Fondée par <strong>Pierre O'Neill</strong> et <strong>Vasco Preun</strong>, deux jeunes entrepreneurs passionnés par l'univers digital, notre agence redéfinit les standards de l'accompagnement des créateurs.
@@ -365,7 +365,7 @@ const Home = () => {
           <AnimatedSection>
             <div className="cta-content">
               <h2>Prêt à valoriser votre talent ?</h2>
-              <p>Rejoignez les créateurs qui ont choisi Nexus Influence</p>
+              <p>Rejoignez les créateurs qui ont choisi Nexus Circle</p>
               <div className="cta-buttons">
                 <Link to="/contact" className="btn btn-primary">
                   Nous contacter

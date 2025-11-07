@@ -12,14 +12,14 @@ Le site utilise **Formspree** pour gérer l'envoi d'emails automatiques depuis l
 
 1. Va sur **https://formspree.io/**
 2. Clique sur **"Sign Up"**
-3. Crée un compte avec ton email (ex: contact@nexusinfluence.fr)
+3. Crée un compte avec ton email (ex: contact@nexuscircle.fr)
 4. Vérifie ton email
 
 ### Étape 2 : Créer un formulaire
 
 1. Une fois connecté, clique sur **"New Form"**
-2. Donne un nom au formulaire : **"Contact Nexus Influence"**
-3. Entre l'email où tu veux recevoir les messages : **contact@nexusinfluence.fr**
+2. Donne un nom au formulaire : **"Contact Nexus Circle"**
+3. Entre l'email où tu veux recevoir les messages : **contact@nexuscircle.fr**
 4. Clique sur **"Create Form"**
 5. Formspree te donne un **Form ID** qui ressemble à : `xyzabc123`
 
@@ -83,7 +83,7 @@ Bonjour,
 
 Merci pour votre message ! Nous avons bien reçu votre demande et nous vous répondrons dans les plus brefs délais.
 
-L'équipe Nexus Influence
+L'équipe Nexus Circle
 ```
 
 ### Redirection après soumission
@@ -132,7 +132,7 @@ Si tu préfères une autre solution, **EmailJS** est aussi une bonne option :
 2. Crée un formulaire et note ton **Form ID**
 3. Remplace `YOUR_FORMSPREE_ID` dans `src/pages/Contact.jsx` (2 endroits)
 4. Teste en envoyant un message depuis ton site
-5. Vérifie que tu reçois bien l'email sur **contact@nexusinfluence.fr**
+5. Vérifie que tu reçois bien l'email sur **contact@nexuscircle.fr**
 
 ---
 

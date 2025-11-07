@@ -1,4 +1,4 @@
-# 🎯 NEXUS INFLUENCE - SITE COMPLET RECONSTRUIT
+# 🎯 NEXUS CIRCLE - SITE COMPLET RECONSTRUIT
 
 ## ✅ TOUT CE QUI A ÉTÉ RECRÉÉ
 
@@ -8,7 +8,7 @@
 - ✅ `src/data/articles.js` - 7 articles de blog complets avec contenu
 
 ### 🧩 COMPOSANTS
-- ✅ `Header` + CSS - Navigation sticky, logo + "Nexus Influence.", 6 onglets, mega-menus
+- ✅ `Header` + CSS - Navigation sticky, logo + "Nexus Circle.", 6 onglets, mega-menus
 - ✅ `Footer` + CSS - Logo, liens navigation, réseaux sociaux (Instagram, LinkedIn)
 - ✅ `MegaMenu` + CSS - 4 types de menus (Créateurs, Services, Partenaires, Contact)
 - ✅ `Chatbot` + CSS - Chatbot noir/blanc en bas à droite avec logo SVG
@@ -126,7 +126,7 @@ Sections dans l'ordre :
 ## 🚀 POUR LANCER LE SITE
 
 ```bash
-cd "/Users/pierreoneill/Nexus Influence - partagé copie"
+cd "/Users/pierreoneill/Nexus Circle - partagé copie"
 npm run dev
 ```
 
@@ -146,7 +146,7 @@ git push origin main
 
 Vercel déploiera automatiquement.
 
-### Pour connecter le domaine `nexusinfluence.fr` :
+### Pour connecter le domaine `nexuscircle.fr` :
 
 1. Dans Vercel → Settings → Domains
 2. Clique sur "Edit" à côté de chaque domaine
@@ -220,7 +220,7 @@ Vercel déploiera automatiquement.
 ## ⚠️ CE QU'IL TE RESTE À FAIRE
 
 1. **Ajouter les images** dans `public/` (voir GUIDE_IMAGES_COMPLET.md)
-2. **Configurer le DNS** pour nexusinfluence.fr (voir instructions ci-dessus)
+2. **Configurer le DNS** pour nexuscircle.fr (voir instructions ci-dessus)
 3. **Tester le site** localement avec `npm run dev`
 4. **Push sur GitHub** pour déployer sur Vercel
 
@@ -234,6 +234,6 @@ Si quelque chose ne fonctionne pas :
 3. Vérifie que les images sont bien nommées et placées
 4. Assure-toi que le serveur dev tourne : `npm run dev`
 
-**Ton site Nexus Influence est maintenant 100% fonctionnel et prêt à être déployé ! 🚀**
+**Ton site Nexus Circle est maintenant 100% fonctionnel et prêt à être déployé ! 🚀**
 
 

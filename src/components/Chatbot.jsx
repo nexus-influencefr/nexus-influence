@@ -9,7 +9,7 @@ const Chatbot = () => {
   const [messages, setMessages] = useState([
     {
       type: 'bot',
-      text: 'Salut ! 👋 Je suis NexusBot, ton assistant pour tout savoir sur Nexus Influence. Que tu sois créateur, marque ou juste curieux, je suis là pour t\'aider. Comment puis-je t\'aider aujourd\'hui ?'
+      text: 'Salut ! 👋 Je suis NexusBot, ton assistant pour tout savoir sur Nexus Circle. Que tu sois créateur, marque ou juste curieux, je suis là pour t\'aider. Comment puis-je t\'aider aujourd\'hui ?'
     }
   ])
   const [inputValue, setInputValue] = useState('')
@@ -37,7 +37,7 @@ const Chatbot = () => {
   const faqQuestions = [
     {
       question: 'Comment devenir créateur chez Nexus ?',
-      answer: 'Bien sûr ! Chez Nexus Influence, on accompagne les créateurs dans leur développement. Contacte-nous via notre formulaire ou à contact@nexusinfluence.fr, et on étudiera ton profil ensemble. Tu veux qu\'on parle de ton projet ?'
+      answer: 'Bien sûr ! Chez Nexus Circle, on accompagne les créateurs dans leur développement. Contacte-nous via notre formulaire ou à contact@nexuscircle.fr, et on étudiera ton profil ensemble. Tu veux qu\'on parle de ton projet ?'
     },
     {
       question: 'Quels sont vos services ?',
@@ -45,7 +45,7 @@ const Chatbot = () => {
     },
     {
       question: 'Qui sont les fondateurs ?',
-      answer: 'Nexus Influence a été créée par Pierre O\'Neill et Vasco Preun, deux jeunes entrepreneurs passionnés par l\'entrepreneuriat et les réseaux sociaux. Leur mission : rendre le monde de l\'influence plus humain, transparent et professionnel.'
+      answer: 'Nexus Circle a été créée par Pierre O\'Neill et Vasco Preun, deux jeunes entrepreneurs passionnés par l\'entrepreneuriat et les réseaux sociaux. Leur mission : rendre le monde de l\'influence plus humain, transparent et professionnel.'
     },
     {
       question: 'Qui accompagnez-vous ?',
@@ -101,12 +101,12 @@ const Chatbot = () => {
               <div className="chatbot-header-content">
                 <img 
                   src="/logo.svg" 
-                  alt="Nexus Influence" 
+                  alt="Nexus Circle" 
                   className="chatbot-logo"
                   onError={(e) => e.target.src = '/logo.png'}
                 />
                 <div>
-                  <h3>Nexus Influence</h3>
+                  <h3>Nexus Circle</h3>
                   <span className="chatbot-status">En ligne</span>
                 </div>
               </div>

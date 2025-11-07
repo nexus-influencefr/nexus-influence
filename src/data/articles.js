@@ -9,7 +9,7 @@ export const articlesData = [
     image: '📊',
     imageUrl: '/images/blog/article1.jpg',
     featured: true,
-    instagram: 'https://www.instagram.com/nexus__influence',
+    instagram: 'https://www.instagram.com/nexus__circle',
     content: `
 ## Une révolution dans le marketing d'influence
 
@@ -52,7 +52,7 @@ Cette tendance ne fera que s'accentuer en 2025. Les marques qui investissent auj
     image: '💰',
     imageUrl: '/images/blog/article3.jpg',
     featured: true,
-    instagram: 'https://www.instagram.com/nexus__influence',
+    instagram: 'https://www.instagram.com/nexus__circle',
     content: `
 ## Transformer votre passion en revenus durables
 
@@ -110,7 +110,7 @@ Une fois établi, proposez vos services de conseil dans votre niche.
 
 Ne pas mettre tous ses œufs dans le même panier ! Une stratégie de monétisation solide combine **3 à 5 sources de revenus** différentes.
 
-*Besoin d'aide pour structurer votre stratégie ? Nexus Influence accompagne ses créateurs dans chaque étape de leur monétisation.*
+*Besoin d'aide pour structurer votre stratégie ? Nexus Circle accompagne ses créateurs dans chaque étape de leur monétisation.*
     `
   },
   {
@@ -123,7 +123,7 @@ Ne pas mettre tous ses œufs dans le même panier ! Une stratégie de monétisat
     image: '🎯',
     imageUrl: '/images/blog/article4.jpg',
     featured: false,
-    instagram: 'https://www.instagram.com/nexus__influence',
+    instagram: 'https://www.instagram.com/nexus__circle',
     content: `
 ## Le grand duel des plateformes sociales
 
@@ -181,7 +181,7 @@ La vraie stratégie gagnante en 2025 ? **Être présent sur les deux plateformes
 - Utilisez Instagram pour la monétisation
 - Dirigez votre audience TikTok vers Instagram
 
-*Besoin d'aide pour votre stratégie multi-plateforme ? Contactez Nexus Influence.*
+*Besoin d'aide pour votre stratégie multi-plateforme ? Contactez Nexus Circle.*
     `
   },
   {
@@ -194,7 +194,7 @@ La vraie stratégie gagnante en 2025 ? **Être présent sur les deux plateformes
     image: '🚀',
     imageUrl: '/images/blog/article5.jpg',
     featured: false,
-    instagram: 'https://www.instagram.com/nexus__influence',
+    instagram: 'https://www.instagram.com/nexus__circle',
     content: `
 ## Les 10 tendances qui vont dominer 2025
 
@@ -240,7 +240,7 @@ Site web, newsletter, podcast : Diversifier sa présence pour ne plus dépendre 
 
 Répondre aux commentaires ne suffit plus. Les créateurs qui créent de vraies discussions, des sondages, des défis avec leur communauté dominent.
 
-*Prêt à surfer sur ces tendances ? Nexus Influence vous accompagne.*
+*Prêt à surfer sur ces tendances ? Nexus Circle vous accompagne.*
     `
   },
   {
@@ -253,7 +253,7 @@ Répondre aux commentaires ne suffit plus. Les créateurs qui créent de vraies 
     image: '⚠️',
     imageUrl: '/images/blog/article6.jpg',
     featured: false,
-    instagram: 'https://www.instagram.com/nexus__influence',
+    instagram: 'https://www.instagram.com/nexus__circle',
     content: `
 ## Les erreurs qui tuent votre croissance
 
@@ -289,7 +289,7 @@ Après avoir accompagné des centaines de créateurs, nous avons identifié les 
 
 **La solution :** Qualité > Quantité. Prenez des pauses. Votre santé mentale passe avant les algorithmes.
 
-*Nexus Influence vous aide à éviter ces pièges dès le départ.*
+*Nexus Circle vous aide à éviter ces pièges dès le départ.*
     `
   },
   {
@@ -302,7 +302,7 @@ Après avoir accompagné des centaines de créateurs, nous avons identifié les 
     image: '📈',
     imageUrl: '/images/blog/article8.jpg',
     featured: false,
-    instagram: 'https://www.instagram.com/nexus__influence',
+    instagram: 'https://www.instagram.com/nexus__circle',
     content: `
 ## L'ère des collaborations durables
 
@@ -346,7 +346,7 @@ Les audiences ne sont pas dupes. Elles reconnaissent et apprécient les collabor
 
 **Étape 1 : L'alignement des valeurs**
 
-Le succès d'un partenariat long terme repose sur une vraie cohérence entre la marque et le créateur. Chez Nexus Influence, nous ne proposons que des collaborations qui font sens.
+Le succès d'un partenariat long terme repose sur une vraie cohérence entre la marque et le créateur. Chez Nexus Circle, nous ne proposons que des collaborations qui font sens.
 
 **Étape 2 : Des objectifs SMART**
 
@@ -358,7 +358,7 @@ Les meilleures campagnes laissent le créateur exprimer sa personnalité. Les ma
 
 ### Notre accompagnement
 
-Chez Nexus Influence, nous structurons ces partenariats long terme pour nos créateurs :
+Chez Nexus Circle, nous structurons ces partenariats long terme pour nos créateurs :
 - Négociation des contrats
 - Définition des KPIs
 - Suivi mensuel des performances
@@ -377,7 +377,7 @@ Chez Nexus Influence, nous structurons ces partenariats long terme pour nos cré
     image: '💎',
     imageUrl: '/images/blog/article9.jpg',
     featured: false,
-    instagram: 'https://www.instagram.com/nexus__influence',
+    instagram: 'https://www.instagram.com/nexus__circle',
     content: `
 ## L'authenticité n'est plus une option
 
@@ -427,7 +427,7 @@ Paradoxalement, être authentique est la meilleure stratégie commerciale. Les c
 - Attirent de meilleurs partenariats
 - Construisent des carrières durables
 
-*Chez Nexus Influence, nous ne proposons à nos créateurs que des partenariats qui respectent leur authenticité.*
+*Chez Nexus Circle, nous ne proposons à nos créateurs que des partenariats qui respectent leur authenticité.*
     `
   }
 ]
