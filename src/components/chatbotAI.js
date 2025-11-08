@@ -398,9 +398,14 @@ export const analyzeAndRespond = (userMessage) => {
     return `On trouve des marques pertinentes pour toi, on négocie, on gère tout ! Des partenariats qui ont du sens. Tu es créateur ou marque ?`
   }
   
+  // NEXUS INFLUENCE (ancien nom)
+  if (/nexus.*influence|influence.*nexus/.test(normalized)) {
+    return `Nexus Influence était notre ancien nom ! On a évolué vers Nexus Circle, qui représente mieux notre vision : créer un cercle vertueux où créateurs, marques et communautés sont connectés. Le "Circle" symbolise l'union, la continuité, l'équilibre... Un écosystème complet et harmonieux plutôt qu'une simple "influence". Plus humain, plus authentique ! 🔄✨`
+  }
+
   // NEXUS GÉNÉRAL
   if (/cest quoi|quest-ce|nexus/.test(normalized)) {
-    return `Nexus Circle : agence d'accompagnement de créateurs. On t'aide à te professionnaliser, monétiser, et trouver des collabs quali. Mission : rendre l'influence plus humaine ! Qu'est-ce qui t'intéresse ?`
+    return `Nexus Circle : agence d'accompagnement de créateurs. On t'aide à te professionnaliser, monétiser, et trouver des collabs quali. Mission : créer un cercle vertueux entre créateurs, marques et communautés ! Qu'est-ce qui t'intéresse ? 🔄`
   }
   
   // SALUT
