@@ -133,6 +133,7 @@
   border-radius: 50%;
   background: var(--black);
   padding: 5px;
+  filter: brightness(0) invert(1);
   object-fit: cover;
   object-position: center;
 }
