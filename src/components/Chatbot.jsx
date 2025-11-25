@@ -31,6 +31,8 @@ const Chatbot = () => {
       document.body.style.top = `-${scrollY}px`
       document.body.style.width = '100%'
       document.body.style.overflow = 'hidden'
+      document.body.style.overflowX = 'hidden'
+      document.documentElement.style.overflowX = 'hidden'
       
       return () => {
         // Restaurer le scroll
@@ -38,6 +40,8 @@ const Chatbot = () => {
         document.body.style.top = ''
         document.body.style.width = ''
         document.body.style.overflow = ''
+        document.body.style.overflowX = ''
+        document.documentElement.style.overflowX = ''
         window.scrollTo(0, scrollY)
       }
     }
