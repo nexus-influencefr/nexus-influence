@@ -19,53 +19,6 @@
   padding: 40px 0;
 }
 
-/* Flèches de navigation - cachées sur desktop */
-.partners-arrow {
-  display: none;
-  position: fixed;
-  top: 50%;
-  transform: translateY(-50%);
-  width: 55px;
-  height: 55px;
-  background: rgba(212, 175, 55, 0.95);
-  border: none;
-  border-radius: 50%;
-  color: #000;
-  cursor: pointer;
-  z-index: 1000;
-  transition: transform 0.2s ease;
-  box-shadow: 0 8px 25px rgba(212, 175, 55, 0.6);
-  touch-action: none;
-  pointer-events: auto;
-}
-
-.partners-arrow svg {
-  width: 30px;
-  height: 30px;
-}
-
-.partners-arrow:active {
-  transform: translateY(-50%) scale(0.9);
-  box-shadow: 0 5px 15px rgba(212, 175, 55, 0.8);
-  background: rgba(212, 175, 55, 1);
-}
-
-.partners-arrow-left {
-  left: 15px;
-}
-
-.partners-arrow-right {
-  right: 15px;
-}
-
-/* Afficher les flèches sur mobile */
-@media (max-width: 768px) {
-  .partners-arrow {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-  }
-}
 
 .partners-track {
   display: flex;
@@ -84,29 +37,35 @@
   cursor: grabbing;
 }
 
-/* Mode mobile : carousel centré par carte */
+/* Mode mobile : scroll horizontal simple */
 @media (max-width: 768px) {
+  .partners-slider {
+    padding: 40px 0;
+    overflow-x: auto;
+    overflow-y: hidden;
+    -webkit-overflow-scrolling: touch;
+    scroll-snap-type: x mandatory;
+    scrollbar-width: none;
+    -ms-overflow-style: none;
+  }
+
+  .partners-slider::-webkit-scrollbar {
+    display: none;
+  }
+
   .partners-track {
     animation: none !important;
-    justify-content: flex-start;
+    display: flex;
+    gap: 20px;
+    padding: 0 20px;
   }
 
   .partner-item {
     width: 85vw;
     min-width: 85vw;
     padding: 35px 25px;
-  }
-
-  .partners-slider {
-    padding: 40px 0;
-  }
-
-  .partners-arrow-left {
-    left: 15px;
-  }
-
-  .partners-arrow-right {
-    right: 15px;
+    scroll-snap-align: start;
+    flex-shrink: 0;
   }
 }
 

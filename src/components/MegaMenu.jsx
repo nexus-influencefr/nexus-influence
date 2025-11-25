@@ -1,10 +1,21 @@
 import { motion, AnimatePresence } from 'framer-motion'
 import { Link } from 'react-router-dom'
+import { useState, useEffect } from 'react'
 import { creatorsData } from '../data/creators'
 import { partnersData } from '../data/partners'
 import './MegaMenu.css'
 
 const MegaMenu = ({ type, isActive }) => {
+  const [isMobile, setIsMobile] = useState(false)
+
+  useEffect(() => {
+    const checkMobile = () => {
+      setIsMobile(window.innerWidth <= 768)
+    }
+    checkMobile()
+    window.addEventListener('resize', checkMobile)
+    return () => window.removeEventListener('resize', checkMobile)
+  }, [])
   const services = [
     { title: 'Stratégie & Audit', description: 'Analyse complète de votre profil et définition de votre stratégie de croissance' },
     { title: 'Media Kit', description: 'Création de votre dossier de présentation professionnel pour séduire les marques' },
@@ -113,7 +124,7 @@ const MegaMenu = ({ type, isActive }) => {
           <h3 className="mega-menu-title">Ils nous font confiance</h3>
               <div className="partners-simple-grid">
                 <div className="partners-scroll-track">
-                  {[...partnersData, ...partnersData].map((partner, index) => {
+                  {(!isMobile ? [...partnersData, ...partnersData] : partnersData).map((partner, index) => {
                     const logo = (
                       <img 
                         src={partner.logo} 

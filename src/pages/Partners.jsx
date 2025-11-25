@@ -6,70 +6,36 @@ import './Partners.css'
 
 const Partners = () => {
   const [isDragging, setIsDragging] = useState(false)
-  const [currentIndex, setCurrentIndex] = useState(0)
-  const [isManualMode, setIsManualMode] = useState(false)
+  const [isMobile, setIsMobile] = useState(false)
   const trackRef = useRef(null)
   const startX = useRef(0)
   const scrollLeft = useRef(0)
 
-  // Mettre à jour la position du carousel sur mobile
   useEffect(() => {
-    if (trackRef.current && window.innerWidth <= 768) {
-      const isMobile = window.matchMedia('(max-width: 768px)').matches
-      if (isMobile) {
-        // Centrer la carte actuelle
-        const cardWidth = 320
-        const gap = 40
-        const itemWidth = cardWidth + gap
-        const screenCenter = window.innerWidth / 2
-        const cardCenter = cardWidth / 2
-        const offset = screenCenter - cardCenter - (currentIndex * itemWidth)
-        trackRef.current.style.transform = `translateX(${offset}px)`
-      }
+    const checkMobile = () => {
+      setIsMobile(window.innerWidth <= 768)
     }
-  }, [currentIndex])
+    checkMobile()
+    window.addEventListener('resize', checkMobile)
+    return () => window.removeEventListener('resize', checkMobile)
+  }, [])
 
-  const handleTouchStart = (e) => {
-    setIsDragging(true)
-    startX.current = e.touches[0].pageX
-    if (trackRef.current) {
-      trackRef.current.style.animationPlayState = 'paused'
-      const computedStyle = window.getComputedStyle(trackRef.current)
-      const matrix = new DOMMatrix(computedStyle.transform)
-      scrollLeft.current = matrix.m41
-    }
-  }
-
-  const handleTouchMove = (e) => {
-    if (!isDragging || !trackRef.current) return
-    e.stopPropagation()
-    const x = e.touches[0].pageX
-    const walk = (x - startX.current) * 1.5
-    trackRef.current.style.transform = `translateX(${scrollLeft.current + walk}px)`
-  }
-
-  const handleTouchEnd = () => {
-    setIsDragging(false)
-    if (trackRef.current) {
-      trackRef.current.style.animationPlayState = 'running'
-      trackRef.current.style.transform = ''
-    }
-  }
-
-  // Gestion souris (desktop)
+  // Gestion souris (desktop uniquement)
   const handleMouseDown = (e) => {
-    setIsDragging(true)
-    startX.current = e.pageX
-    if (trackRef.current) {
-      trackRef.current.style.animationPlayState = 'paused'
-      const computedStyle = window.getComputedStyle(trackRef.current)
-      const matrix = new DOMMatrix(computedStyle.transform)
-      scrollLeft.current = matrix.m41
+    if (!isMobile) {
+      setIsDragging(true)
+      startX.current = e.pageX
+      if (trackRef.current) {
+        trackRef.current.style.animationPlayState = 'paused'
+        const computedStyle = window.getComputedStyle(trackRef.current)
+        const matrix = new DOMMatrix(computedStyle.transform)
+        scrollLeft.current = matrix.m41
+      }
     }
   }
 
   const handleMouseMove = (e) => {
-    if (!isDragging || !trackRef.current) return
+    if (!isDragging || !trackRef.current || isMobile) return
     e.preventDefault()
     const x = e.pageX
     const walk = (x - startX.current) * 1.5
@@ -77,20 +43,13 @@ const Partners = () => {
   }
 
   const handleMouseUp = () => {
-    setIsDragging(false)
-    if (trackRef.current) {
-      trackRef.current.style.animationPlayState = 'running'
-      trackRef.current.style.transform = ''
+    if (!isMobile) {
+      setIsDragging(false)
+      if (trackRef.current) {
+        trackRef.current.style.animationPlayState = 'running'
+        trackRef.current.style.transform = ''
+      }
     }
-  }
-
-  // Navigation avec flèches (mobile)
-  const handlePrev = () => {
-    setCurrentIndex((prev) => (prev - 1 + partnersData.length) % partnersData.length)
-  }
-
-  const handleNext = () => {
-    setCurrentIndex((prev) => (prev + 1) % partnersData.length)
   }
 
   return (
@@ -114,28 +73,13 @@ const Partners = () => {
         <div className="container">
           <div 
             className="partners-slider"
-            onTouchStart={handleTouchStart}
-            onTouchMove={handleTouchMove}
-            onTouchEnd={handleTouchEnd}
             onMouseDown={handleMouseDown}
             onMouseMove={handleMouseMove}
             onMouseUp={handleMouseUp}
             onMouseLeave={handleMouseUp}
           >
-            {/* Flèches de navigation mobile */}
-            <button className="partners-arrow partners-arrow-left" onClick={handlePrev}>
-              <svg viewBox="0 0 24 24" fill="currentColor">
-                <path d="M15.41 7.41L14 6l-6 6 6 6 1.41-1.41L10.83 12z"/>
-              </svg>
-            </button>
-            <button className="partners-arrow partners-arrow-right" onClick={handleNext}>
-              <svg viewBox="0 0 24 24" fill="currentColor">
-                <path d="M10 6L8.59 7.41 13.17 12l-4.58 4.59L10 18l6-6z"/>
-              </svg>
-            </button>
-
             <div className={`partners-track ${isDragging ? 'dragging' : ''}`} ref={trackRef}>
-              {[...partnersData, ...partnersData].map((partner, index) => {
+              {(!isMobile ? [...partnersData, ...partnersData] : partnersData).map((partner, index) => {
                 const content = (
                   <>
                     <div className="partner-logo">
