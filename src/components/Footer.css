@@ -36,6 +36,15 @@
   height: 40px;
   width: auto;
   filter: brightness(0) invert(1);
+  color: var(--white);
+}
+
+.footer-logo svg,
+.footer-logo path,
+.footer-logo circle,
+.footer-logo rect {
+  fill: var(--white) !important;
+  stroke: var(--white) !important;
 }
 
 .footer-logo-text {

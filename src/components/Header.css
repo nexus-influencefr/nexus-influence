@@ -35,6 +35,15 @@
   width: auto;
   object-fit: contain;
   filter: brightness(0) invert(1);
+  color: var(--white);
+}
+
+.logo svg,
+.logo path,
+.logo circle,
+.logo rect {
+  fill: var(--white) !important;
+  stroke: var(--white) !important;
 }
 
 .logo-text {

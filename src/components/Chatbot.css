@@ -136,6 +136,15 @@
   filter: brightness(0) invert(1);
   object-fit: cover;
   object-position: center;
+  color: var(--white);
+}
+
+.chatbot-logo svg,
+.chatbot-logo path,
+.chatbot-logo circle,
+.chatbot-logo rect {
+  fill: var(--white) !important;
+  stroke: var(--white) !important;
 }
 
 .chatbot-header h3 {
@@ -431,6 +440,16 @@
     width: 32px;
     height: 32px;
     flex-shrink: 0;
+    filter: brightness(0) invert(1);
+    color: var(--white);
+  }
+
+  .chatbot-logo svg,
+  .chatbot-logo path,
+  .chatbot-logo circle,
+  .chatbot-logo rect {
+    fill: var(--white) !important;
+    stroke: var(--white) !important;
   }
 
   .chatbot-header h3 {
