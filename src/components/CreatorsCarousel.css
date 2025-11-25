@@ -194,11 +194,7 @@
   .carousel-item:hover {
     transform: translateY(-10px) scale(1.05);
     border-color: rgba(212, 175, 55, 0.4);
-    box-shadow: 
-      0 20px 60px rgba(212, 175, 55, 0.3),
-      0 0 0 1px rgba(212, 175, 55, 0.2),
-      inset 0 0 30px rgba(212, 175, 55, 0.05);
-}
+  }
 
   .carousel-item:hover .carousel-image img {
     transform: scale(1.1);
