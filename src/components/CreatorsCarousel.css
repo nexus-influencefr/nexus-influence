@@ -6,26 +6,6 @@
 }
 
 
-.creators-carousel::before,
-.creators-carousel::after {
-  content: '';
-  position: absolute;
-  top: 0;
-  width: 150px;
-  height: 100%;
-  z-index: 2;
-  pointer-events: none;
-}
-
-.creators-carousel::before {
-  left: 0;
-  background: linear-gradient(to right, rgba(0, 0, 0, 1) 0%, transparent 100%);
-}
-
-.creators-carousel::after {
-  right: 0;
-  background: linear-gradient(to left, rgba(0, 0, 0, 1) 0%, transparent 100%);
-}
 
 .carousel-track {
   display: flex;
