@@ -28,6 +28,7 @@ const Chatbot = () => {
       // Bloquer complètement le scroll
       const scrollY = window.scrollY
       document.body.classList.add('chatbot-open')
+      document.documentElement.classList.add('chatbot-open')
       document.body.style.position = 'fixed'
       document.body.style.top = `-${scrollY}px`
       document.body.style.left = '0'
@@ -44,6 +45,7 @@ const Chatbot = () => {
       return () => {
         // Restaurer le scroll
         document.body.classList.remove('chatbot-open')
+        document.documentElement.classList.remove('chatbot-open')
         document.body.style.position = ''
         document.body.style.top = ''
         document.body.style.left = ''
