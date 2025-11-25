@@ -20,6 +20,36 @@ const Partners = () => {
     return () => window.removeEventListener('resize', checkMobile)
   }, [])
 
+  // Pauser l'animation quand le carousel n'est pas visible
+  useEffect(() => {
+    if (isMobile) return // Pas d'animation sur mobile
+    
+    const slider = document.querySelector('.partners-slider')
+    if (!slider) return
+
+    const observer = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((entry) => {
+          const track = slider.querySelector('.partners-track')
+          if (track) {
+            if (entry.isIntersecting) {
+              track.style.animationPlayState = 'running'
+            } else {
+              track.style.animationPlayState = 'paused'
+            }
+          }
+        })
+      },
+      { threshold: 0.1 }
+    )
+
+    observer.observe(slider)
+
+    return () => {
+      observer.disconnect()
+    }
+  }, [isMobile])
+
   // Gestion souris (desktop uniquement)
   const handleMouseDown = (e) => {
     if (!isMobile) {
@@ -87,6 +117,8 @@ const Partners = () => {
                         src={partner.logo} 
                         alt={partner.name}
                         className="partner-logo-img"
+                        loading="lazy"
+                        decoding="async"
                       />
                     </div>
                     <h3 className="partner-name">{partner.name}</h3>

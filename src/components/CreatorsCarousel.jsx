@@ -1,4 +1,4 @@
-import { useState, useEffect } from 'react'
+import { useState, useEffect, useRef } from 'react'
 import { Link } from 'react-router-dom'
 import { motion, AnimatePresence } from 'framer-motion'
 import { creatorsData } from '../data/creators'
@@ -7,6 +7,7 @@ import './CreatorsCarousel.css'
 const CreatorsCarousel = () => {
   const [selectedCreator, setSelectedCreator] = useState(null)
   const [isMobile, setIsMobile] = useState(false)
+  const carouselRef = useRef(null)
 
   useEffect(() => {
     const checkMobile = () => {
@@ -16,6 +17,36 @@ const CreatorsCarousel = () => {
     window.addEventListener('resize', checkMobile)
     return () => window.removeEventListener('resize', checkMobile)
   }, [])
+
+  // Pauser l'animation quand le carousel n'est pas visible
+  useEffect(() => {
+    if (isMobile) return // Pas d'animation sur mobile
+    
+    const carousel = carouselRef.current
+    if (!carousel) return
+
+    const observer = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((entry) => {
+          const track = carousel.querySelector('.carousel-track')
+          if (track) {
+            if (entry.isIntersecting) {
+              track.style.animationPlayState = 'running'
+            } else {
+              track.style.animationPlayState = 'paused'
+            }
+          }
+        })
+      },
+      { threshold: 0.1 }
+    )
+
+    observer.observe(carousel)
+
+    return () => {
+      observer.disconnect()
+    }
+  }, [isMobile])
 
   useEffect(() => {
     if (selectedCreator) {
@@ -42,7 +73,7 @@ const CreatorsCarousel = () => {
 
   return (
     <>
-      <div className="creators-carousel">
+      <div className="creators-carousel" ref={carouselRef}>
         <div className="carousel-track">
           {allCreators.map((creator, index) => (
             <div 
@@ -54,6 +85,8 @@ const CreatorsCarousel = () => {
                 <img 
                   src={creator.image} 
                   alt={creator.name}
+                  loading="lazy"
+                  decoding="async"
                   style={{ objectPosition: creator.imagePosition }}
                 />
               </div>
@@ -94,6 +127,8 @@ const CreatorsCarousel = () => {
                 <img 
                   src={selectedCreator.image} 
                   alt={selectedCreator.name}
+                  loading="eager"
+                  decoding="async"
                   style={{ objectPosition: selectedCreator.imagePosition }}
                 />
               </div>

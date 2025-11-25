@@ -29,6 +29,8 @@
   user-select: none;
   cursor: grab;
   transition: transform 0.6s cubic-bezier(0.34, 1.56, 0.64, 1);
+  will-change: transform;
+  transform: translateZ(0);
 }
 
 .partners-track.dragging {
@@ -88,15 +90,16 @@
 .partner-item {
   flex-shrink: 0;
   width: 320px;
-  background: rgba(0, 0, 0, 0.3);
-  backdrop-filter: blur(10px);
+  background: rgba(0, 0, 0, 0.5);
+  /* backdrop-filter: blur(10px); - Retiré pour performance */
   border: 1px solid rgba(255, 255, 255, 0.1);
   border-radius: 20px;
   padding: 40px 30px;
   text-align: center;
-  transition: all 0.4s cubic-bezier(0.34, 1.56, 0.64, 1);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
   position: relative;
   overflow: hidden;
+  will-change: transform;
 }
 
 .partner-item-link {
@@ -203,13 +206,14 @@
 }
 
 .value-card {
-  background: rgba(0, 0, 0, 0.2);
-  backdrop-filter: blur(10px);
+  background: rgba(0, 0, 0, 0.4);
+  /* backdrop-filter: blur(10px); - Retiré pour performance */
   border: 1px solid rgba(255, 255, 255, 0.1);
   border-radius: 15px;
   padding: 40px 30px;
   text-align: center;
-  transition: all 0.3s ease;
+  transition: transform 0.3s ease, box-shadow 0.3s ease, border-color 0.3s ease;
+  will-change: transform;
 }
 
 .value-card:hover {

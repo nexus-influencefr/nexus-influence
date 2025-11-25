@@ -12,6 +12,8 @@
   gap: 30px;
   width: max-content;
   animation: carousel-scroll 12s linear infinite;
+  will-change: transform;
+  transform: translateZ(0);
 }
 
 /* Pause au hover seulement sur desktop */
@@ -139,6 +141,8 @@
   height: 100%;
   object-fit: cover;
   transition: transform 0.4s ease;
+  will-change: transform;
+  transform: translateZ(0);
 }
 
 .carousel-overlay {
@@ -183,8 +187,8 @@
   left: 0;
   right: 0;
   bottom: 0;
-  background: rgba(0, 0, 0, 0.92);
-  backdrop-filter: blur(10px);
+  background: rgba(0, 0, 0, 0.95);
+  /* backdrop-filter: blur(10px); - Retiré pour performance */
   display: flex;
   align-items: center;
   justify-content: center;
