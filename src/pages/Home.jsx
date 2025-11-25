@@ -137,7 +137,7 @@ const Home = () => {
         <div className="container">
           <AnimatedSection>
           <div className="hero-content">
-              <div className="hero-brand">Nexus Circle</div>
+              <div className="hero-brand">Nexus Circle - L'agence d'accompagnement de micro-créateurs</div>
               <h1>Valorisez votre talent</h1>
               <p className="hero-subtitle">
                 L'agence qui accompagne les créateurs de contenu vers le succès
