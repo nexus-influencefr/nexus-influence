@@ -153,8 +153,8 @@
 .swipe-section {
   padding: 0;
   text-align: center;
-  margin-top: 38px; /* 1cm d'écart depuis le carrousel */
-  margin-bottom: 227px; /* 6cm d'écart avant "Notre ADN" */
+  margin-top: 4px; /* 1mm d'écart depuis le carrousel */
+  margin-bottom: 0;
 }
 
 .swipe-content {
@@ -206,8 +206,8 @@
 
 @media (max-width: 768px) {
   .swipe-section {
-    margin-top: 30px; /* 1cm sur mobile */
-    margin-bottom: 180px; /* 6cm sur mobile (légèrement réduit) */
+    margin-top: 4px; /* 1mm sur mobile aussi */
+    margin-bottom: 0;
   }
 
   .swipe-text {
