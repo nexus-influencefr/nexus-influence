@@ -52,8 +52,8 @@ const Footer = () => {
               </a>
               <a 
                 href="https://www.linkedin.com/company/nexus-circle-fr" 
-                target="_blank" 
-                rel="noopener noreferrer"
+                    target="_blank"
+                    rel="noopener noreferrer"
                 className="social-link"
               >
                 <svg className="social-icon-svg" viewBox="0 0 24 24" fill="currentColor">
@@ -63,7 +63,7 @@ const Footer = () => {
               </a>
             </div>
           </div>
-        </div>
+            </div>
 
         <div className="footer-bottom">
           <p>&copy; 2025 Nexus Circle. Tous droits réservés.</p>
