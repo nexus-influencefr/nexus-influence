@@ -17,7 +17,7 @@ const Footer = () => {
               <span className="footer-logo-text">Nexus Circle.</span>
             </Link>
             <p className="footer-tagline">
-              Nexus Circle - L'agence d'accompagnement de micro-créateurs
+              Valorisez votre talent, monétisez votre passion.
             </p>
           </div>
 
