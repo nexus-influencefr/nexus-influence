@@ -68,15 +68,18 @@
   height: 12px;
 }
 
-.carousel-hint {
+/* Texte indicatif - en dehors du carrousel */
+.carousel-hint-container {
   text-align: center;
-  margin-top: 15px;
-  padding: 0 20px;
+  margin-top: 20px;
+  padding: 15px 20px;
+  position: relative;
+  z-index: 1;
 }
 
-.carousel-hint span {
-  color: rgba(212, 175, 55, 0.7);
-  font-size: 0.85rem;
+.carousel-hint-text {
+  color: rgba(212, 175, 55, 0.8);
+  font-size: 0.9rem;
   font-weight: 500;
   display: inline-flex;
   align-items: center;
@@ -96,9 +99,9 @@
 /* Mode mobile : scroll horizontal simple */
 @media (max-width: 768px) {
   .creators-carousel {
-    padding: 40px 0 20px;
+    padding: 40px 0 0;
     overflow-x: auto;
-    overflow-y: hidden;
+    overflow-y: visible;
     -webkit-overflow-scrolling: touch;
     scroll-snap-type: x mandatory;
     scrollbar-width: none;
@@ -128,10 +131,6 @@
   .carousel-indicators {
     margin-top: 20px;
   }
-
-  .carousel-hint {
-    margin-top: 10px;
-  }
 }
 
 @keyframes carousel-scroll {
@@ -148,15 +147,11 @@
   .creators-carousel:hover .carousel-track {
     animation-play-state: paused;
   }
-
-  .creators-carousel:hover .carousel-hint {
-    opacity: 0;
-  }
 }
 
 /* Cacher le hint sur desktop */
 @media (min-width: 769px) {
-  .carousel-hint {
+  .carousel-hint-container {
     display: none;
   }
 }
