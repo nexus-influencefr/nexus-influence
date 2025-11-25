@@ -29,19 +29,31 @@ const Chatbot = () => {
       const scrollY = window.scrollY
       document.body.style.position = 'fixed'
       document.body.style.top = `-${scrollY}px`
+      document.body.style.left = '0'
+      document.body.style.right = '0'
       document.body.style.width = '100%'
+      document.body.style.height = '100%'
       document.body.style.overflow = 'hidden'
       document.body.style.overflowX = 'hidden'
+      document.body.style.overflowY = 'hidden'
+      document.documentElement.style.overflow = 'hidden'
       document.documentElement.style.overflowX = 'hidden'
+      document.documentElement.style.overflowY = 'hidden'
       
       return () => {
         // Restaurer le scroll
         document.body.style.position = ''
         document.body.style.top = ''
+        document.body.style.left = ''
+        document.body.style.right = ''
         document.body.style.width = ''
+        document.body.style.height = ''
         document.body.style.overflow = ''
         document.body.style.overflowX = ''
+        document.body.style.overflowY = ''
+        document.documentElement.style.overflow = ''
         document.documentElement.style.overflowX = ''
+        document.documentElement.style.overflowY = ''
         window.scrollTo(0, scrollY)
       }
     }
