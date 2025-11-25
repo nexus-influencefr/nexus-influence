@@ -151,86 +151,56 @@
 
 /* Swipe Section */
 .swipe-section {
-  padding: 20px 0 40px;
+  padding: 0;
   text-align: center;
-  margin-top: -20px;
+  margin-top: -30px;
+  margin-bottom: 20px;
 }
 
-.swipe-title-container {
+.swipe-content {
   display: flex;
   flex-direction: column;
   align-items: center;
-  gap: 15px;
+  gap: 8px;
 }
 
-.swipe-title {
-  font-size: 2.5rem;
-  font-weight: 700;
-  color: var(--gold);
-  margin: 0;
+.swipe-text {
+  font-size: 0.9rem;
+  font-weight: 500;
+  color: rgba(212, 175, 55, 0.8);
   text-transform: uppercase;
-  letter-spacing: 4px;
+  letter-spacing: 2px;
 }
 
 .swipe-arrow {
   display: flex;
   align-items: center;
   justify-content: center;
-  margin-top: 5px;
-  position: relative;
-  overflow: hidden;
 }
 
 .swipe-arrow svg {
-  width: 150px;
-  height: 24px;
-  filter: drop-shadow(0 2px 8px rgba(212, 175, 55, 0.3));
-}
-
-.swipe-arrow::before {
-  content: '';
-  position: absolute;
-  top: 0;
-  left: -100%;
-  width: 100%;
-  height: 100%;
-  background: linear-gradient(
-    90deg,
-    transparent 0%,
-    rgba(255, 255, 255, 0.4) 50%,
-    transparent 100%
-  );
-  animation: shine 2s ease-in-out infinite;
-  pointer-events: none;
-}
-
-@keyframes shine {
-  0% {
-    left: -100%;
-  }
-  100% {
-    left: 100%;
-  }
+  width: 40px;
+  height: 16px;
 }
 
 @media (max-width: 768px) {
   .swipe-section {
-    padding: 15px 0 30px;
-    margin-top: -15px;
+    margin-top: -20px;
+    margin-bottom: 15px;
   }
 
-  .swipe-title {
-    font-size: 1.8rem;
-    letter-spacing: 2px;
+  .swipe-text {
+    font-size: 0.8rem;
+    letter-spacing: 1.5px;
   }
 
-  .swipe-title-container {
-    gap: 12px;
+  .swipe-content {
+    gap: 6px;
   }
 
   .swipe-arrow svg {
-    width: 120px;
-    height: 20px;
+    width: 35px;
+    height: 14px;
   }
 }
 

@@ -180,22 +180,11 @@ const Home = () => {
 
       <section className="swipe-section">
         <div className="container">
-          <div className="swipe-title-container">
-            <h2 className="swipe-title">Swipe</h2>
+          <div className="swipe-content">
+            <span className="swipe-text">Swipe</span>
             <div className="swipe-arrow">
-              <svg width="150" height="24" viewBox="0 0 150 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-                <defs>
-                  <linearGradient id="arrowGradient" x1="0%" y1="0%" x2="100%" y2="0%">
-                    <stop offset="0%" stopColor="rgba(212, 175, 55, 0.4)" />
-                    <stop offset="50%" stopColor="rgba(212, 175, 55, 1)" />
-                    <stop offset="100%" stopColor="rgba(212, 175, 55, 0.4)" />
-                    <animate attributeName="x1" values="0%;100%;0%" dur="2s" repeatCount="indefinite" />
-                    <animate attributeName="x2" values="100%;200%;100%" dur="2s" repeatCount="indefinite" />
-                  </linearGradient>
-                </defs>
-                <line x1="0" y1="12" x2="120" y2="12" stroke="url(#arrowGradient)" strokeWidth="2.5" strokeDasharray="6 6" strokeLinecap="round"/>
-                <path d="M120 12 L140 4 M120 12 L140 20" stroke="rgba(212, 175, 55, 0.9)" strokeWidth="3" strokeLinecap="round" strokeLinejoin="round"/>
-                <circle cx="140" cy="12" r="3" fill="rgba(212, 175, 55, 0.9)"/>
+              <svg width="40" height="16" viewBox="0 0 40 16" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <path d="M0 8 L30 8 M30 8 L22 2 M30 8 L22 14" stroke="rgba(212, 175, 55, 0.8)" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
               </svg>
             </div>
           </div>
