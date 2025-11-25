@@ -8,9 +8,11 @@ const CreatorsCarousel = () => {
   const [selectedCreator, setSelectedCreator] = useState(null)
   const [isDragging, setIsDragging] = useState(false)
   const [isMobile, setIsMobile] = useState(false)
+  const [isHorizontalSwipe, setIsHorizontalSwipe] = useState(false)
   const carouselRef = useRef(null)
   const trackRef = useRef(null)
   const startX = useRef(0)
+  const startY = useRef(0)
   const scrollLeft = useRef(0)
 
   useEffect(() => {
@@ -32,6 +34,55 @@ const CreatorsCarousel = () => {
       document.body.style.overflow = 'unset'
     }
   }, [selectedCreator])
+
+  // Gestion tactile (mobile) - détecte la direction
+  const handleTouchStart = (e) => {
+    if (isMobile) {
+      startX.current = e.touches[0].pageX
+      startY.current = e.touches[0].pageY
+      setIsHorizontalSwipe(false)
+    }
+  }
+
+  const handleTouchMove = (e) => {
+    if (!isMobile) return
+    
+    const currentX = e.touches[0].pageX
+    const currentY = e.touches[0].pageY
+    const deltaX = Math.abs(currentX - startX.current)
+    const deltaY = Math.abs(currentY - startY.current)
+
+    // Si on n'a pas encore déterminé la direction et que le mouvement est significatif
+    if (!isHorizontalSwipe && (deltaX > 10 || deltaY > 10)) {
+      // Si le mouvement horizontal est plus important que le vertical
+      if (deltaX > deltaY) {
+        setIsHorizontalSwipe(true)
+        setIsDragging(true)
+        e.preventDefault() // Empêche le scroll vertical seulement pour swipe horizontal
+      } else {
+        // Mouvement vertical - on laisse le scroll normal
+        return
+      }
+    }
+
+    // Si c'est un swipe horizontal, on gère le carrousel
+    if (isHorizontalSwipe && trackRef.current) {
+      e.preventDefault()
+      const walk = (currentX - startX.current) * 1.5
+      trackRef.current.style.transform = `translateX(${walk}px)`
+    }
+  }
+
+  const handleTouchEnd = () => {
+    if (isMobile) {
+      if (isHorizontalSwipe && trackRef.current) {
+        // Retour à la position initiale ou snap
+        trackRef.current.style.transform = ''
+      }
+      setIsDragging(false)
+      setIsHorizontalSwipe(false)
+    }
+  }
 
   // Gestion souris (desktop uniquement)
   const handleMouseDown = (e) => {
@@ -73,6 +124,9 @@ const CreatorsCarousel = () => {
       <div 
         className="creators-carousel" 
         ref={carouselRef}
+        onTouchStart={handleTouchStart}
+        onTouchMove={handleTouchMove}
+        onTouchEnd={handleTouchEnd}
         onMouseDown={handleMouseDown}
         onMouseMove={handleMouseMove}
         onMouseUp={handleMouseUp}
@@ -100,6 +154,20 @@ const CreatorsCarousel = () => {
             </div>
           ))}
         </div>
+        
+        {/* Indicateurs visuels */}
+        <div className="carousel-indicators">
+          {creatorsData.map((_, index) => (
+            <div key={index} className="carousel-dot"></div>
+          ))}
+        </div>
+        
+        {/* Texte indicatif mobile */}
+        {isMobile && (
+          <div className="carousel-hint">
+            <span>Swipe pour voir plus →</span>
+          </div>
+        )}
       </div>
 
       <AnimatePresence>
