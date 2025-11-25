@@ -183,9 +183,10 @@ const Home = () => {
           <div className="swipe-title-container">
             <h2 className="swipe-title">Swipe</h2>
             <div className="swipe-arrow">
-              <svg width="120" height="20" viewBox="0 0 120 20" fill="none" xmlns="http://www.w3.org/2000/svg">
-                <line x1="0" y1="10" x2="100" y2="10" stroke="rgba(212, 175, 55, 0.6)" strokeWidth="2" strokeDasharray="5 5"/>
-                <path d="M100 10 L110 5 M100 10 L110 15" stroke="rgba(212, 175, 55, 0.6)" strokeWidth="2" strokeLinecap="round"/>
+              <svg width="150" height="24" viewBox="0 0 150 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <line x1="0" y1="12" x2="120" y2="12" stroke="rgba(212, 175, 55, 0.7)" strokeWidth="2.5" strokeDasharray="6 6" strokeLinecap="round"/>
+                <path d="M120 12 L140 4 M120 12 L140 20" stroke="rgba(212, 175, 55, 0.9)" strokeWidth="3" strokeLinecap="round" strokeLinejoin="round"/>
+                <circle cx="140" cy="12" r="3" fill="rgba(212, 175, 55, 0.9)"/>
               </svg>
             </div>
           </div>
