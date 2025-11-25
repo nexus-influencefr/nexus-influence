@@ -178,6 +178,20 @@ const Home = () => {
         </div>
       </section>
 
+      <section className="swipe-section">
+        <div className="container">
+          <div className="swipe-title-container">
+            <h2 className="swipe-title">Swipe</h2>
+            <div className="swipe-arrow">
+              <svg width="120" height="20" viewBox="0 0 120 20" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <line x1="0" y1="10" x2="100" y2="10" stroke="rgba(212, 175, 55, 0.6)" strokeWidth="2" strokeDasharray="5 5"/>
+                <path d="M100 10 L110 5 M100 10 L110 15" stroke="rgba(212, 175, 55, 0.6)" strokeWidth="2" strokeLinecap="round"/>
+              </svg>
+            </div>
+          </div>
+        </div>
+      </section>
+
       <section className="values-section dark-section">
         <div className="container">
           <AnimatedSection>

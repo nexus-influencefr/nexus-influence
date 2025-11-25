@@ -149,6 +149,55 @@
   position: relative;
 }
 
+/* Swipe Section */
+.swipe-section {
+  padding: 60px 0;
+  text-align: center;
+}
+
+.swipe-title-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 20px;
+}
+
+.swipe-title {
+  font-size: 3rem;
+  font-weight: 700;
+  color: var(--gold);
+  margin: 0;
+  text-transform: uppercase;
+  letter-spacing: 4px;
+}
+
+.swipe-arrow {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.swipe-arrow svg {
+  width: 120px;
+  height: 20px;
+}
+
+@media (max-width: 768px) {
+  .swipe-section {
+    padding: 40px 0;
+  }
+
+  .swipe-title {
+    font-size: 2rem;
+    letter-spacing: 2px;
+  }
+
+  .swipe-arrow svg {
+    width: 100px;
+    height: 18px;
+  }
+}
+
 /* Values Section */
 .values-section {
   padding: 100px 0;
