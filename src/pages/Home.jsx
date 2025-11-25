@@ -184,7 +184,16 @@ const Home = () => {
             <h2 className="swipe-title">Swipe</h2>
             <div className="swipe-arrow">
               <svg width="150" height="24" viewBox="0 0 150 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-                <line x1="0" y1="12" x2="120" y2="12" stroke="rgba(212, 175, 55, 0.7)" strokeWidth="2.5" strokeDasharray="6 6" strokeLinecap="round"/>
+                <defs>
+                  <linearGradient id="arrowGradient" x1="0%" y1="0%" x2="100%" y2="0%">
+                    <stop offset="0%" stopColor="rgba(212, 175, 55, 0.4)" />
+                    <stop offset="50%" stopColor="rgba(212, 175, 55, 1)" />
+                    <stop offset="100%" stopColor="rgba(212, 175, 55, 0.4)" />
+                    <animate attributeName="x1" values="0%;100%;0%" dur="2s" repeatCount="indefinite" />
+                    <animate attributeName="x2" values="100%;200%;100%" dur="2s" repeatCount="indefinite" />
+                  </linearGradient>
+                </defs>
+                <line x1="0" y1="12" x2="120" y2="12" stroke="url(#arrowGradient)" strokeWidth="2.5" strokeDasharray="6 6" strokeLinecap="round"/>
                 <path d="M120 12 L140 4 M120 12 L140 20" stroke="rgba(212, 175, 55, 0.9)" strokeWidth="3" strokeLinecap="round" strokeLinejoin="round"/>
                 <circle cx="140" cy="12" r="3" fill="rgba(212, 175, 55, 0.9)"/>
               </svg>
