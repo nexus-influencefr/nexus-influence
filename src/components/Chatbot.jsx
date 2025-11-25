@@ -42,6 +42,23 @@ const Chatbot = () => {
       document.documentElement.style.overflowX = 'hidden'
       document.documentElement.style.overflowY = 'hidden'
       
+      // Adapter au clavier sur mobile
+      const chatbotWindow = document.querySelector('.chatbot-window')
+      const handleResize = () => {
+        if (chatbotWindow && window.visualViewport) {
+          // Utiliser la hauteur du viewport visible (sans le clavier)
+          const viewportHeight = window.visualViewport.height
+          chatbotWindow.style.height = `${viewportHeight}px`
+          chatbotWindow.style.maxHeight = `${viewportHeight}px`
+        }
+      }
+      
+      // Écouter les changements du viewport (clavier)
+      if (window.visualViewport) {
+        window.visualViewport.addEventListener('resize', handleResize)
+        handleResize() // Appel initial
+      }
+      
       return () => {
         // Restaurer le scroll
         document.body.classList.remove('chatbot-open')
@@ -59,6 +76,15 @@ const Chatbot = () => {
         document.documentElement.style.overflowX = ''
         document.documentElement.style.overflowY = ''
         window.scrollTo(0, scrollY)
+        
+        // Nettoyer le listener
+        if (window.visualViewport) {
+          window.visualViewport.removeEventListener('resize', handleResize)
+        }
+        if (chatbotWindow) {
+          chatbotWindow.style.height = ''
+          chatbotWindow.style.maxHeight = ''
+        }
       }
     }
   }, [isOpen])
