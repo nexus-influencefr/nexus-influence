@@ -181,12 +181,10 @@ const Home = () => {
       <section className="swipe-section">
         <div className="container">
           <div className="swipe-content">
-            <span className="swipe-text">Swipe</span>
-            <div className="swipe-arrow">
-              <svg width="40" height="16" viewBox="0 0 40 16" fill="none" xmlns="http://www.w3.org/2000/svg">
-                <path d="M0 8 L30 8 M30 8 L22 2 M30 8 L22 14" stroke="rgba(212, 175, 55, 0.8)" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
-              </svg>
-            </div>
+            <span className="swipe-text">Swipe pour en découvrir plus</span>
+            <svg className="swipe-arrow" width="20" height="16" viewBox="0 0 20 16" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <path d="M0 8 L15 8 M15 8 L10 3 M15 8 L10 13" stroke="rgba(212, 175, 55, 0.9)" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
+            </svg>
           </div>
         </div>
       </section>
