@@ -391,58 +391,77 @@
     z-index: 10000;
     display: flex;
     flex-direction: column;
+    transform: scale(0.85);
+    transform-origin: top center;
   }
 
   .chatbot-header {
-    padding: 15px 20px;
+    padding: 10px 15px;
     border-bottom: 1px solid rgba(0, 0, 0, 0.1);
     flex-shrink: 0;
   }
 
+  .chatbot-header-content {
+    gap: 8px;
+  }
+
   .chatbot-logo {
-    width: 40px;
-    height: 40px;
+    width: 32px;
+    height: 32px;
   }
 
   .chatbot-header h3 {
-    font-size: 0.9rem;
+    font-size: 0.85rem;
+    margin: 0;
+  }
+
+  .chatbot-status {
+    font-size: 0.7rem;
+  }
+
+  .chatbot-close {
+    width: 28px;
+    height: 28px;
+    font-size: 1rem;
   }
 
   .chatbot-messages {
     flex: 1;
-    padding: 20px 15px;
+    padding: 12px 12px;
     overflow-y: auto;
     min-height: 0;
     max-height: none;
     -webkit-overflow-scrolling: touch;
+    gap: 8px;
+  }
+
+  .message {
+    font-size: 0.85rem;
+    padding: 10px 14px;
+    max-width: 85%;
+    line-height: 1.4;
   }
 
   .chatbot-content {
-    padding: 15px;
+    padding: 10px 12px 12px;
     border-top: 1px solid rgba(0, 0, 0, 0.05);
     flex-shrink: 0;
     background: var(--white);
   }
 
   .chatbot-form {
-    gap: 8px;
+    gap: 6px;
   }
 
   .chatbot-input {
-    padding: 14px 16px;
-    font-size: 1rem;
-    border-radius: 12px;
+    padding: 10px 14px;
+    font-size: 0.9rem;
+    border-radius: 10px;
   }
 
   .chatbot-send {
-    padding: 14px 20px;
-    font-size: 1rem;
-  }
-
-  .message {
-    font-size: 1rem;
-    padding: 14px 18px;
-    max-width: 85%;
+    padding: 10px 16px;
+    font-size: 0.9rem;
   }
 
   .chatbot-toggle {
@@ -457,9 +476,9 @@
   }
 
   .show-faq-btn {
-    margin-top: 8px;
-    padding: 14px;
-    font-size: 0.9rem;
+    margin-top: 6px;
+    padding: 10px;
+    font-size: 0.85rem;
   }
 }
 
