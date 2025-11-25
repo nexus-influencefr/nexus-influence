@@ -407,7 +407,7 @@
   }
 
   .chatbot-header {
-    padding: 14px 16px;
+    padding: 12px 16px;
     border-bottom: 1px solid rgba(0, 0, 0, 0.06);
     flex-shrink: 0;
     width: 100%;
@@ -415,7 +415,7 @@
     box-sizing: border-box;
     overflow: hidden;
     background: var(--white);
-    min-height: 60px;
+    min-height: 56px;
   }
 
   .chatbot-header-content {
@@ -454,13 +454,13 @@
 
   .chatbot-messages {
     flex: 1;
-    padding: 20px 16px;
+    padding: 16px 16px;
     overflow-y: auto;
     overflow-x: hidden;
     min-height: 0;
     max-height: none;
     -webkit-overflow-scrolling: touch;
-    gap: 20px;
+    gap: 16px;
     width: 100%;
     max-width: 100vw;
     box-sizing: border-box;
@@ -479,14 +479,14 @@
   }
 
   .message {
-    font-size: 1rem;
-    padding: 14px 18px;
+    font-size: 0.95rem;
+    padding: 12px 16px;
     max-width: 75%;
-    line-height: 1.6;
+    line-height: 1.5;
     word-wrap: break-word;
     overflow-wrap: break-word;
     box-sizing: border-box;
-    border-radius: 18px;
+    border-radius: 16px;
   }
 
   .message.bot {
@@ -504,7 +504,8 @@
   }
 
   .chatbot-content {
-    padding: 16px;
+    padding: 12px 16px;
+    padding-bottom: max(12px, env(safe-area-inset-bottom));
     border-top: 1px solid rgba(0, 0, 0, 0.06);
     flex-shrink: 0;
     background: var(--white);
@@ -515,27 +516,27 @@
   }
 
   .chatbot-form {
-    gap: 10px;
+    gap: 8px;
     width: 100%;
   }
 
   .chatbot-input {
-    padding: 14px 18px;
-    font-size: 1rem;
-    border-radius: 14px;
+    padding: 12px 16px;
+    font-size: 0.95rem;
+    border-radius: 12px;
     width: 100%;
     box-sizing: border-box;
     border: 1px solid rgba(0, 0, 0, 0.12);
     background: rgba(0, 0, 0, 0.02);
-    line-height: 1.5;
+    line-height: 1.4;
   }
 
   .chatbot-send {
-    padding: 14px 24px;
-    font-size: 1rem;
+    padding: 12px 20px;
+    font-size: 0.95rem;
     width: 100%;
     box-sizing: border-box;
-    border-radius: 14px;
+    border-radius: 12px;
   }
 
   .chatbot-toggle {
@@ -550,9 +551,9 @@
   }
 
   .show-faq-btn {
-    margin-top: 10px;
-    padding: 14px;
-    font-size: 0.9rem;
+    margin-top: 8px;
+    padding: 10px;
+    font-size: 0.85rem;
     width: 100%;
     box-sizing: border-box;
   }
