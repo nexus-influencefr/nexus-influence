@@ -25,67 +25,12 @@ const Chatbot = () => {
 
   useEffect(() => {
     if (isOpen) {
-      // Bloquer complètement le scroll
-      const scrollY = window.scrollY
       document.body.classList.add('chatbot-open')
-      document.documentElement.classList.add('chatbot-open')
-      document.body.style.position = 'fixed'
-      document.body.style.top = `-${scrollY}px`
-      document.body.style.left = '0'
-      document.body.style.right = '0'
-      document.body.style.width = '100%'
-      document.body.style.height = '100%'
-      document.body.style.overflow = 'hidden'
-      document.body.style.overflowX = 'hidden'
-      document.body.style.overflowY = 'hidden'
-      document.documentElement.style.overflow = 'hidden'
-      document.documentElement.style.overflowX = 'hidden'
-      document.documentElement.style.overflowY = 'hidden'
-      
-      // Adapter au clavier sur mobile
-      const chatbotWindow = document.querySelector('.chatbot-window')
-      const handleResize = () => {
-        if (chatbotWindow && window.visualViewport) {
-          // Utiliser la hauteur du viewport visible (sans le clavier)
-          const viewportHeight = window.visualViewport.height
-          chatbotWindow.style.height = `${viewportHeight}px`
-          chatbotWindow.style.maxHeight = `${viewportHeight}px`
-        }
-      }
-      
-      // Écouter les changements du viewport (clavier)
-      if (window.visualViewport) {
-        window.visualViewport.addEventListener('resize', handleResize)
-        handleResize() // Appel initial
-      }
-      
-      return () => {
-        // Restaurer le scroll
-        document.body.classList.remove('chatbot-open')
-        document.documentElement.classList.remove('chatbot-open')
-        document.body.style.position = ''
-        document.body.style.top = ''
-        document.body.style.left = ''
-        document.body.style.right = ''
-        document.body.style.width = ''
-        document.body.style.height = ''
-        document.body.style.overflow = ''
-        document.body.style.overflowX = ''
-        document.body.style.overflowY = ''
-        document.documentElement.style.overflow = ''
-        document.documentElement.style.overflowX = ''
-        document.documentElement.style.overflowY = ''
-        window.scrollTo(0, scrollY)
-        
-        // Nettoyer le listener
-        if (window.visualViewport) {
-          window.visualViewport.removeEventListener('resize', handleResize)
-        }
-        if (chatbotWindow) {
-          chatbotWindow.style.height = ''
-          chatbotWindow.style.maxHeight = ''
-        }
-      }
+    } else {
+      document.body.classList.remove('chatbot-open')
+    }
+    return () => {
+      document.body.classList.remove('chatbot-open')
     }
   }, [isOpen])
 
@@ -104,7 +49,7 @@ const Chatbot = () => {
     },
     {
       question: 'Qui accompagnez-vous ?',
-      answer: 'On travaille avec plusieurs créateurs comme Flo (lifestyle & mode), Olary (food, lifestyle & Twitch), Alexis (fitness & bien-être) et Alice (mode et modelling). Et d\'autres sont en cours d\'onboarding ! Tu veux en savoir plus sur l\'un d\'eux ?'
+      answer: 'On travaille avec plusieurs créateurs comme Flo (lifestyle & mode), Olary (lifestyle, échecs & Twitch), Alexis (fitness & bien-être), Alice (mode & mannequinat), Geoffroy (entrepreneuriat & horlogerie), Florian (outdoor & aventure), Kovana (outdoor & exploration) et Lucas (sport & trickshot). Et d\'autres sont en cours d\'onboarding ! Tu veux en savoir plus sur l\'un d\'eux ?'
     }
   ]
 
@@ -114,6 +59,7 @@ const Chatbot = () => {
       { type: 'user', text: faq.question },
       { type: 'bot', text: faq.answer }
     ])
+    setShowFAQ(false)
   }
 
   const handleSendMessage = (e) => {
@@ -133,24 +79,21 @@ const Chatbot = () => {
 
   return (
     <>
-      <motion.button
+      <button
         className="chatbot-toggle"
         onClick={() => setIsOpen(!isOpen)}
-        whileHover={{ scale: 1.1 }}
-        whileTap={{ scale: 0.9 }}
       >
-        <span className="chatbot-notification-dot"></span>
-        <span className="chatbot-icon-emoji">💬</span>
-      </motion.button>
+        <span className="chatbot-icon">💬</span>
+      </button>
 
       <AnimatePresence>
         {isOpen && (
           <motion.div
             className="chatbot-window"
-            initial={{ opacity: 0, y: 20, scale: 0.95 }}
-            animate={{ opacity: 1, y: 0, scale: 1 }}
-            exit={{ opacity: 0, y: 20, scale: 0.95 }}
-            transition={{ duration: 0.3 }}
+            initial={{ opacity: 0, scale: 0.9 }}
+            animate={{ opacity: 1, scale: 1 }}
+            exit={{ opacity: 0, scale: 0.9 }}
+            transition={{ duration: 0.2 }}
           >
             <div className="chatbot-header">
               <div className="chatbot-header-content">
@@ -173,44 +116,41 @@ const Chatbot = () => {
               </button>
             </div>
 
-            <div className="chatbot-messages">
-              {messages.map((msg, index) => (
-                <div key={index} className={`message ${msg.type}`}>
-                  {msg.text}
+            {showFAQ ? (
+              <div className="chatbot-faq">
+                <div className="faq-header">
+                  <h4>Questions fréquentes</h4>
+                  <button 
+                    className="faq-close"
+                    onClick={() => setShowFAQ(false)}
+                  >
+                    ✕
+                  </button>
                 </div>
-              ))}
-              <div ref={messagesEndRef} />
-            </div>
-
-            <div className="chatbot-content">
-              {showFAQ ? (
-                <div className="faq-section">
-                  <div className="faq-header">
-                    <h4>Questions fréquentes</h4>
-                    <button 
-                      className="faq-close"
-                      onClick={() => setShowFAQ(false)}
+                <div className="faq-list">
+                  {faqQuestions.map((faq, index) => (
+                    <button
+                      key={index}
+                      className="faq-item"
+                      onClick={() => handleFaqClick(faq)}
                     >
-                      ✕
+                      {faq.question}
                     </button>
-                  </div>
-                  <div className="faq-list">
-                    {faqQuestions.map((faq, index) => (
-                      <button
-                        key={index}
-                        className="faq-item"
-                        onClick={() => {
-                          handleFaqClick(faq)
-                          setShowFAQ(false)
-                        }}
-                      >
-                        {faq.question}
-                      </button>
-                    ))}
-                  </div>
+                  ))}
                 </div>
-              ) : (
-                <>
+              </div>
+            ) : (
+              <>
+                <div className="chatbot-messages">
+                  {messages.map((msg, index) => (
+                    <div key={index} className={`message message-${msg.type}`}>
+                      {msg.text}
+                    </div>
+                  ))}
+                  <div ref={messagesEndRef} />
+                </div>
+
+                <div className="chatbot-footer">
                   <form onSubmit={handleSendMessage} className="chatbot-form">
                     <input
                       type="text"
@@ -218,21 +158,20 @@ const Chatbot = () => {
                       value={inputValue}
                       onChange={(e) => setInputValue(e.target.value)}
                       className="chatbot-input"
-                      autoFocus
                     />
                     <button type="submit" className="chatbot-send">
-                      Envoyer →
+                      Envoyer
                     </button>
                   </form>
                   <button 
                     className="show-faq-btn"
                     onClick={() => setShowFAQ(true)}
                   >
-                    💡 Voir les questions fréquentes
+                    💡 Questions fréquentes
                   </button>
-                </>
-              )}
-            </div>
+                </div>
+              </>
+            )}
           </motion.div>
         )}
       </AnimatePresence>
@@ -241,4 +180,3 @@ const Chatbot = () => {
 }
 
 export default Chatbot
-

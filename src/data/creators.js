@@ -53,5 +53,38 @@ export const creatorsData = [
     image: '/images/creators/geo.jpg',
     imagePosition: 'center 30%',
     instagram: 'https://www.instagram.com/life_of_geo_'
+  },
+  {
+    name: 'Florian',
+    handle: '@floflodesmontagnes',
+    type: 'Outdoor / Aventure',
+    description: 'Créateur de contenu outdoor passionné de randonnée et haute montagne. Partage des vidéos autour de l\'exploration, des paysages et de l\'aventure en pleine nature.',
+    followers: '...',
+    engagement: '...',
+    image: '/images/creators/florian.jpg',
+    imagePosition: 'center center',
+    instagram: 'https://www.instagram.com/floflodesmontagnes'
+  },
+  {
+    name: 'Kovana',
+    handle: '@sors2cheztoi',
+    type: 'Outdoor / Aventure',
+    description: 'Créateur de contenu outdoor et exploration. Vidéos de randonnée, nature et aventures en plein air pour inspirer sa communauté à sortir et découvrir.',
+    followers: '...',
+    engagement: '...',
+    image: '/images/creators/kovana.jpg',
+    imagePosition: 'center center',
+    instagram: 'https://www.instagram.com/sors2cheztoi'
+  },
+  {
+    name: 'Lucas',
+    handle: '@elchicolatine',
+    type: 'Sport / Trickshot',
+    description: 'Créateur de contenu sportif spécialisé en basket. Vidéos de trickshots, défis et contenus dynamiques pour une communauté passionnée de sport.',
+    followers: '...',
+    engagement: '...',
+    image: '/images/creators/lucas.jpg',
+    imagePosition: 'center center',
+    instagram: 'https://www.instagram.com/elchicolatine'
   }
 ]

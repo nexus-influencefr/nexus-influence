@@ -7,6 +7,9 @@ Placez les photos des créateurs dans ce dossier avec les noms suivants :
 - `alexis.jpg` - Photo d'Alexis (@legarspolyvalent)
 - `alice.jpg` - Photo d'Alice (@rossetalice)
 - `geo.jpg` - Photo de Geo (@life_of_geo_)
+- `florian.jpg` - Photo de Florian (@floflodesmontagnes)
+- `kovana.jpg` - Photo de Kovana (@sors2cheztoi)
+- `lucas.jpg` - Photo de Lucas (@elchicolatine)
 
 **Format recommandé :** JPG ou PNG
 **Dimensions recommandées :** 800x1000px minimum

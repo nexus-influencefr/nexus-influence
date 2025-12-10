@@ -25,3 +25,5 @@ Google peut prendre **plusieurs jours à plusieurs semaines** pour mettre à jou
 2. Demandez une nouvelle indexation de la page d'accueil
 3. Attendez 1-7 jours
 
+
+

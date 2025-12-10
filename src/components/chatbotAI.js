@@ -20,14 +20,14 @@ export const analyzeAndRespond = (userMessage) => {
   // TARIFS DES CRÉATEURS SPÉCIFIQUES (PRIORITÉ - AVANT LA DESCRIPTION)
   // Utilise NLP pour détecter les intentions de tarifs/prix
   const isPricing = matchesAny(expanded, ["tarif","prix","cout","combien","partenariat","budget","devis","honoraire","remuneration","facturation"])
-  const isCreatorMentioned = /flo|ola|olary|alice|alexis|geo|geoffroy/.test(normalized)
+  const isCreatorMentioned = /flo|ola|olary|alice|alexis|geo|geoffroy|florian|kovana|lucas/.test(normalized)
   
   if (isPricing && isCreatorMentioned) {
     return `Pour connaître les tarifs de nos créateurs et discuter d'un partenariat, envoie-nous un DM sur Instagram @nexus__circle ou un email à contact@nexuscircle.fr ! Tu peux aussi passer directement par notre page Contact sur le site. On te répond rapidement avec tous les détails ! 💰📩`
   }
 
   // ENGAGEMENT
-  if (/taux.*engagement|engagement.*de/.test(normalized) && /alice|flo|olary|alexis|geo/.test(normalized)) {
+  if (/taux.*engagement|engagement.*de/.test(normalized) && /alice|flo|olary|alexis|geo|florian|kovana|lucas/.test(normalized)) {
     return `Les taux d'engagement de nos créateurs sont confidentiels ! Mais tous ont un excellent engagement. Pour en savoir plus : contact@nexuscircle.fr ! 📊`
   }
 
@@ -51,6 +51,18 @@ export const analyzeAndRespond = (userMessage) => {
 
     if (/\bgeo\b|geoffroy/.test(normalized)) {
       return `Geoffroy (@life_of_geo_), jeune entrepreneur passionné d'horlogerie ! 300 abonnés. Il a monté sa propre boîte en horlogerie et partage son aventure entrepreneuriale. On l'accompagne sur sa croissance ! Passionnant non ?`
+    }
+
+    if (/\bflorian\b|floflodesmontagnes/.test(normalized)) {
+      return `Florian (@floflodesmontagnes), créateur outdoor passionné de randonnée et haute montagne ! Il partage des vidéos autour de l'exploration, des paysages et de l'aventure en pleine nature. On l'accompagne sur ses collabs outdoor ! Tu aimes la montagne ?`
+    }
+
+    if (/\bkovana\b|sors2cheztoi/.test(normalized)) {
+      return `Kovana (@sors2cheztoi), créateur de contenu outdoor et exploration ! Vidéos de randonnée, nature et aventures en plein air pour inspirer sa communauté à sortir et découvrir. On bosse ensemble sur sa stratégie ! Tu es fan d'outdoor ?`
+    }
+
+    if (/\blucas\b|elchicolatine/.test(normalized)) {
+      return `Lucas (@elchicolatine), créateur sportif spécialisé en basket ! Vidéos de trickshots, défis et contenus dynamiques pour une communauté passionnée de sport. On l'accompagne sur ses collabs sport ! Tu es dans le sport ?`
     }
 
     if (/august|outdoor|ginger/.test(normalized)) {
@@ -235,7 +247,7 @@ export const analyzeAndRespond = (userMessage) => {
 
   // LISTE DES CRÉATEURS
   if (/liste.*createur|voir.*createur/.test(normalized)) {
-    return `Oui ! Va sur notre page Créateurs, tu verras Flo, Olary, Alexis, Alice, Geoffroy... et d'autres à venir ! Check leurs profils ! 👥`
+    return `Oui ! Va sur notre page Créateurs, tu verras Flo, Olary, Alexis, Alice, Geoffroy, Florian, Kovana, Lucas... et d'autres à venir ! Check leurs profils ! 👥`
   }
 
   // EXCLUSIVITÉ

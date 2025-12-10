@@ -25,3 +25,5 @@ Si vous n'avez pas encore ce fichier, vous pouvez :
 
 Le logo doit être bien visible et lisible sur fond noir.
 
+
+
